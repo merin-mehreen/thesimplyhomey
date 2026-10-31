@@ -34,12 +34,16 @@ Use **Media** to upload JPEG, PNG or WebP images up to 10 MB each, once R2 is co
 
 ## Orders and stock
 
-Cash-on-delivery checkout is enabled. It collects delivery details, stores an order and deducts stock. You can pause ordering with the checkout toggle in Store settings. It accepts cash-on-delivery orders only. The server checks current prices and stock, records the order and deducts inventory together. It does not accept a price submitted by the shopper's browser.
+EasyPaisa checkout is enabled. It collects delivery details, saves an order number and reserves stock. Customers submit a transaction reference and private screenshot on the separate payment page. You can pause ordering with the checkout toggle in Store settings. Enter the actual EasyPaisa account title and number before collecting payments. The server checks current prices and stock, records the order and deducts inventory together. It does not accept a price submitted by the shopper's browser.
 
-Use **Orders** to view contact information and purchased variants, then mark an order confirmed, dispatched, delivered or cancelled. There are no automatic customer emails or courier bookings. Cancelled orders require manual stock adjustment after you verify what should be restocked.
+Use **Orders** to view contact information and purchased variants, then mark an order confirmed, dispatched, delivered or cancelled. Inspect the linked payment screenshot and verify the actual wallet transfer before approving. There are no automatic customer emails or courier bookings. Cancelling an unpaid order automatically releases reserved stock once. Payment must be approved before confirmation or dispatch. Paid orders require a separate refund review before cancellation.
 
 If a product or its stock changes while your edit form is open, saving is blocked with a conflict message. Go back and reopen the product to load current stock, then apply your changes. Stock adjustment history is not included.
 
 ## Backups
 
 Download a catalogue backup regularly. It includes current products, stock, categories and store settings, but excludes customer orders and image bytes. Maintain private D1 database and R2 media backups separately in Cloudflare.
+
+## Sales and inventory ledgers
+
+Use Sales ledger for date/payment/order-status/customer filters and CSV export. Use Inventory ledger to record stock additions/adjustments with a reason, review movement history and export CSV. See [Payments and ledgers](PAYMENTS_AND_LEDGERS.md) for the full workflow. Brand logos, navigation labels and main homepage section copy/photos can be edited in Store settings; page layout and CSS remain developer-controlled.

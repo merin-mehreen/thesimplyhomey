@@ -55,3 +55,34 @@
  .editorial>div{padding:38px 8%}.editorial img{height:360px;border-radius:0}
  #bag{padding:27px 22px}.gallery-main{height:420px}
 }
+/* Larger brand navigation and dedicated shopping surfaces. */
+.site-header .masthead{grid-template-columns:190px 1fr auto;gap:30px;height:116px}
+.site-header .brand img{width:188px;height:100px}
+.site-header .nav{font-size:14px;gap:clamp(22px,2vw,36px);letter-spacing:.025em}
+.site-header .raya-link img{width:96px;height:54px}
+.site-header .icon svg{width:23px;height:23px}
+.preserve-lines{white-space:pre-line}
+.shopping-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);gap:60px;align-items:start}
+.cart-line{display:grid;grid-template-columns:130px minmax(0,1fr) 100px;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}
+.cart-line:first-child{padding-top:0}.cart-line>a>img{width:130px;height:165px;object-fit:cover;border-radius:10px}
+.cart-line h3{font-size:27px;margin-bottom:10px}.cart-line p{margin-bottom:8px}.cart-quantity .field{margin:0 0 18px}
+.remove-item,.text-button{font-size:11px;text-decoration:underline;padding:6px 0}
+.order-summary{background:var(--wash);border-radius:14px;padding:28px}.order-summary h3{margin-bottom:26px}
+.summary-product{display:grid;grid-template-columns:54px 1fr auto;gap:12px;font-size:12px;margin:18px 0;align-items:start}.summary-product img{width:54px;height:68px;object-fit:cover;border-radius:5px}.summary-product small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.summary-line{display:flex;justify-content:space-between;gap:20px;margin:20px 0}.grand-total{font-size:18px;padding-top:18px;border-top:1px solid var(--line)}
+.checkout-link{margin-top:18px}.payment-method{padding:20px 0;font-size:13px}.form-error{color:#8b482e;font-size:12px;margin-top:15px;overflow-wrap:anywhere}
+.payment-layout{max-width:1000px;margin:auto;display:grid;grid-template-columns:290px 1fr;gap:60px;align-items:start}
+.payment-reference{padding:28px;border-radius:12px;background:var(--wash)}.payment-reference code{display:block;overflow-wrap:anywhere;font-size:15px;line-height:1.8;margin:15px 0}.payment-reference strong{display:block;font-size:25px;margin-top:20px}.payment-reference p{margin-top:15px;font-size:13px}
+.payment-instructions{margin:36px 0}.payment-instructions h3,#payment-form h3{margin-bottom:20px}.payment-instructions dl{display:grid;grid-template-columns:150px 1fr;gap:10px;font-size:13px}.payment-instructions dd{margin:0;font-weight:500}.payment-instructions p,.payment-note{font-size:13px;white-space:pre-line}.payment-note{margin:25px 0}
+.login-logo{width:170px;margin-bottom:25px}.login details{display:none}
+.ledger-filters{display:flex;gap:15px;align-items:flex-end;flex-wrap:wrap;margin:25px 0}.ledger-filters .field{flex:1;min-width:130px;margin:0}.ledger-filters .btn{height:48px}
+.ledger-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin:25px 0 35px}.ledger-stats>div{padding:20px;background:var(--wash);border-radius:8px}.ledger-stats small{font-size:10px;display:block}.ledger-stats strong{display:block;font-family:var(--serif);font-size:30px;line-height:1.3;margin-top:10px}
+.table-scroll{overflow:auto;max-width:100%}.ledger-table{min-width:800px}.ledger-table td{vertical-align:top}.ledger-table th{white-space:nowrap}.ledger-table small{font-size:10px}.status-chip{display:inline-block;background:var(--wash);padding:3px 8px;border-radius:4px;font-size:10px;white-space:nowrap}.status-chip.paid{background:#73786228}.status-chip.rejected{background:#b9846228}
+.ledger-pagination{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:25px;font-size:12px}.stock-in{color:#516044}.stock-out{color:#8b5f45}.stock-adjustment{margin:25px 0}.stock-adjustment .btn{align-self:end;margin-bottom:14px}
+.order-reference{font-size:13px;overflow-wrap:anywhere;margin-bottom:30px}.order-status-form{display:flex;gap:20px;align-items:center}.order-status-form .field{min-width:220px}.order-status-form .btn{margin-top:17px}
+.evidence-review{margin-top:50px}.evidence-review h2{font-size:40px;margin-bottom:25px}.evidence-card{padding:25px 0;border-top:1px solid var(--line)}.evidence-card>img{max-height:360px;width:auto;max-width:100%;object-fit:contain;background:var(--wash);margin:20px 0;border-radius:8px}.evidence-card h3{font-size:25px}.evidence-card p{font-size:12px}
+@media(max-width:1180px){.site-header .masthead{grid-template-columns:165px 1fr auto;gap:20px;padding:0 3%}.site-header .brand img{width:160px;height:92px}.site-header .nav{font-size:13px;gap:20px}.site-header .raya-link img{width:85px}}
+@media(max-width:970px){.site-header .masthead{grid-template-columns:1fr auto;height:100px;position:relative;padding:0 5%}.site-header .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);padding:20px 7% 30px;z-index:10;font-size:16px;box-shadow:0 16px 20px #363d3110}.site-header .nav.menu-open{display:flex;flex-direction:column;align-items:flex-start;gap:6px}.site-header .mobile-menu{display:inline-flex}.site-header .nav .raya-link{margin:10px 0 0}.site-header .raya-link img{width:100px;height:54px}.shopping-layout{gap:30px;grid-template-columns:1fr 1fr}.cart-line{grid-template-columns:85px 1fr;gap:16px}.cart-line>a>img{width:85px;height:115px}.cart-quantity{grid-column:2;display:flex;align-items:center;gap:25px}.cart-quantity .field{width:75px}.payment-layout{gap:30px;grid-template-columns:230px 1fr}.ledger-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.site-header .brand img{width:150px;height:86px}.site-header .masthead{height:96px}.shopping-layout,.payment-layout{display:block}.shopping-layout form{margin-bottom:35px}.order-summary{margin-top:30px;padding:24px}.payment-layout #order-lookup{margin-bottom:35px}.cart-line h3{font-size:24px}.cart-quantity{padding-bottom:5px}.summary-product{grid-template-columns:48px 1fr auto}.payment-instructions dl{grid-template-columns:120px 1fr}.payment-reference{padding:23px}.ledger-stats strong{font-size:25px}.ledger-stats>div{padding:15px}.admin-main .ledger-table th:nth-child(3),.admin-main .ledger-table td:nth-child(3){display:table-cell}.ledger-filters .field{min-width:calc(50% - 15px)}.ledger-filters .btn{width:100%}.order-status-form{align-items:stretch;flex-direction:column;gap:0}.order-status-form .btn{margin:0 0 20px}.stock-adjustment .form-grid{display:block}.ledger-pagination .btn{padding:12px 18px}}
+
+.admin-header[hidden]{display:none}

@@ -2,7 +2,7 @@
 
 ## What was corrected
 
-The first configuration contained a placeholder D1 database ID and a mandatory named R2 bucket. Neither could be used on another account without manual setup. The current configuration uses Wrangler's automatic D1 provisioning, runs the asset build automatically, and initializes the database schema and catalogue on the first API request. R2 is optional so an account without R2 enabled can still deploy the store and accept cash-on-delivery orders.
+The first configuration contained a placeholder D1 database ID and a mandatory named R2 bucket. Neither could be used on another account without manual setup. The current configuration uses Wrangler's automatic D1 provisioning, runs the asset build automatically, and initializes the database schema and catalogue on the first API request. R2 is optional so an account without R2 enabled can still deploy the store and accept EasyPaisa-transfer orders.
 
 Cloudflare’s built-in HTML redirects are disabled because this Worker handles `/admin` and storefront routes itself. This prevents `/admin.html` and `/index.html` rewrites from redirecting back to their public route.
 
@@ -22,11 +22,11 @@ Use the Worker deployment flow: uploading `dist/` as static files alone would om
 
 If reusing a Cloudflare Worker with another name, set the `name` in `wrangler.jsonc` to that exact name before connecting it. Keep the existing `DB` binding linked to the same D1 database across later deployments. For an already configured account, you may supply its actual database ID to pin it explicitly. Do not replace a live database with a new empty one.
 
-After deployment, open the returned `workers.dev` URL. The first catalogue request creates the schema and imports the catalogue once. Reloading or rebuilding does not reset products, prices, stock, settings or orders. Earlier demo installations are upgraded once: demo-only wording is removed and cash-on-delivery checkout is enabled, preserving stored prices and stock.
+After deployment, open the returned `workers.dev` URL. The first catalogue request creates the schema and imports the catalogue once. Reloading or rebuilding does not reset products, prices, stock, settings or orders. Earlier demo installations are upgraded once: demo-only wording is removed and EasyPaisa checkout is enabled, preserving stored prices and stock.
 
 ## Sign in to the admin
 
-Admin is your exact storefront origin plus `/admin`. There is also a **Store management** link at the bottom of the footer.
+Admin is your exact storefront origin plus `/admin`. There is no public storefront link to admin. Navigate to this address manually.
 
 1. In Cloudflare, open **Workers & Pages → your Worker → Settings → Variables and Secrets**.
 2. Add **ADMIN_PASSWORD** as a secret: choose a strong unique password with at least 16 characters.
@@ -36,7 +36,7 @@ Admin is your exact storefront origin plus `/admin`. There is also a **Store man
 
 There is no default password and no password belongs in GitHub. Sessions expire after eight hours. Changing `SESSION_SECRET` invalidates existing sessions. Five failed login attempts per IP within 15 minutes temporarily block login from that IP.
 
-`/api/status` reports whether database and admin secrets are configured, without exposing their values. Missing secrets leave the admin locked; public catalogue browsing does not require them.
+`/api/status` reports whether the database and admin secrets are configured, without exposing their values. See [owner login troubleshooting](ADMIN_LOGIN.md) for A01–A04 error codes and local versus deployed secrets. Missing secrets leave the admin locked; public catalogue browsing does not require them.
 
 ## Enable image uploads (optional)
 
@@ -45,8 +45,8 @@ The 83 original catalogue photos ship with the website and work immediately. Exi
 To upload new image files directly from the admin:
 
 1. Enable R2 in your Cloudflare account if needed.
-2. From a trusted checkout run `npm run storage:enable`. This adds an R2 `MEDIA` binding to `wrangler.jsonc` without any account-specific bucket name.
-3. Commit that configuration and redeploy. Wrangler provisions the bucket and links it to `MEDIA`.
+2. From a trusted checkout run `npm run storage:enable`. This adds separate R2 `MEDIA` (catalogue uploads) and `PAYMENTS` (private evidence) bindings to `wrangler.jsonc`, without account-specific bucket names.
+3. Commit that configuration and redeploy. Wrangler provisions separate buckets and links them to `MEDIA` and `PAYMENTS`. Keep PAYMENTS private.
 
 If you already have a bucket, put its real `bucket_name` into that R2 binding instead. Store uploaded photos and database backups separately. Do not commit R2 credentials.
 
@@ -86,6 +86,8 @@ Open the failed deployment in Cloudflare and copy the error section from its bui
 
 ## Before accepting public orders
 
-The code now uses an actual cash-on-delivery flow, not a demo. Existing provisional prices, sizes and stock remain the values authorized for setup. Confirm those business values, enter real contact/social details, and review the generic policy text before inviting customers. This source update does not configure a payment gateway, send customer emails, or book couriers. Orders appear in the protected admin for you to fulfil.
+The code uses a manual EasyPaisa transfer flow with order references, private payment evidence and owner approval. Enter your actual EasyPaisa account title and number in Store settings. Existing provisional prices, sizes and stock remain the values authorized for setup. Confirm those business values, enter real contact/social details, and review the generic policy text before inviting customers. This source update does not configure a payment gateway, send customer emails, or book couriers. Orders appear in the protected admin for you to fulfil.
 
 For backups, see [Backup and recovery](BACKUPS.md). D1 and R2 data are separate from the GitHub source.
+
+Payment screenshots work without R2: the default is private D1 binary storage up to 1 MB. With PAYMENTS R2 configured, new screenshots use that private bucket up to 5 MB. See [Payments and ledgers](PAYMENTS_AND_LEDGERS.md).

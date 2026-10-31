@@ -4,7 +4,7 @@ A complete Cloudflare store backup has several parts. A screenshot records appea
 
 ## 1. Website code and original catalogue photos
 
-Open the GitHub repository, choose the deployed commit (or a release/tag created for it), then use **Code → Download ZIP**. Downloading the current main branch is a backup of current source; it matches the live deployment only if that exact commit was deployed. Original supplied photos are in `Images/`. Photos subsequently uploaded through the admin are in R2, not GitHub.
+Open the GitHub repository, choose the deployed commit (or a release/tag created for it), then use **Code → Download ZIP**. Downloading the current main branch is a backup of current source; it matches the live deployment only if that exact commit was deployed. Original supplied photos are in `Images/`. Photos subsequently uploaded through the admin are in MEDIA R2, not GitHub. Payment screenshots default to private D1 binary storage; with the optional PAYMENTS binding they are stored in that separate private R2 bucket.
 
 For a developer using Git, a full repository backup including available branches and tags can be made with:
 
@@ -60,3 +60,5 @@ For code-only mistakes, Cloudflare Workers supports deployment rollbacks, but th
 - D1 export: https://developers.cloudflare.com/d1/best-practices/import-export-data/
 - R2 with rclone: https://developers.cloudflare.com/r2/examples/rclone/
 - Worker rollbacks: https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/
+
+Payment evidence must be included in recovery: D1-backed receipt files are part of the full database export; R2-backed receipts require the private PAYMENTS bucket backup. Sales/inventory CSVs include references, not image bytes. Never place these customer/payment backups in the public source repository.
