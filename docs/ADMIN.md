@@ -1,6 +1,6 @@
 # Managing homéy
 
-Visit `/admin` on your store's address. Sign in using the admin password configured in Cloudflare. The password is never placed in a public JavaScript file.
+Visit `/admin` on your store's address. Sign in using the admin password configured in Cloudflare. The password is never placed in a public JavaScript file. Choose it in Cloudflare → Workers & Pages → your Worker → Settings → Variables and Secrets, under ADMIN_PASSWORD. Also set SESSION_SECRET to an independent random value of at least 32 characters, then save/deploy. See [Cloudflare setup](CLOUDFLARE.md) for detailed steps.
 
 ## Add or change a product
 
@@ -14,7 +14,7 @@ Visit `/admin` on your store's address. Sign in using the admin password configu
 8. Tick **Published** to show it in the store. **Featured** makes a homéy product eligible for the homepage's four featured positions. The category must also be published.
 9. Save changes. The live catalogue reads the updated data on its next load; no deployment is required.
 
-Imported prices, sizes and stock are sample values, labelled in the preview banner and descriptions. Replace them with actual values before taking orders. For each product, uncheck “Contains sample prices, options or information” only after replacing those values. Different photos within one source folder are kept as a gallery; do not assume they represent purchasable colour variants until you confirm that.
+The initial prices, sizes and stock are provisional setup values. Replace them with confirmed business values before accepting public orders. Different photos within one source folder are kept as a gallery; do not assume they represent purchasable colour variants until you confirm that.
 
 ## Add a category
 
@@ -24,22 +24,26 @@ Raya products remain inside the same store and shopping bag. Their pages use the
 
 ## Contact details, content and policies
 
-In **Store settings**, update shared email, WhatsApp, Instagram and Facebook fields. Use the international WhatsApp number and full `https://` social URLs. These settings feed every customer-facing contact link. In Preview mode, example contact details are displayed as plain text, with no live links to unverified accounts. Replace them with real contacts before launch.
+In **Store settings**, update shared email, WhatsApp, Instagram and Facebook fields. Use the international WhatsApp number and full `https://` social URLs. These settings feed every customer-facing contact link. Enter real contact details. Empty channels are omitted instead of linking to unverified accounts.
 
-The same screen controls the top announcement, homepage headline/introduction/image, brand introductions, delivery fee, ordering toggle and policy pages. Colour palettes and page composition remain code-level design settings.
+The same screen controls the homepage headline/introduction/image, brand introductions, delivery fee, ordering toggle and policy pages. Colour palettes and page composition remain code-level design settings.
 
 ## Upload images
 
-Use **Media** to upload JPEG, PNG or WebP images up to 10 MB each. Select a thumbnail to copy its URL, then paste it into a product or other image field. Media comes from the original catalogue and your R2 uploads. Uploaded image names are random and do not overwrite another product's photos.
+Use **Media** to upload JPEG, PNG or WebP images up to 10 MB each, once R2 is connected as the optional MEDIA binding. Without R2, use existing catalogue photos or HTTPS image URLs. Select a thumbnail to copy its URL, then paste it into a product or other image field. Media comes from the original catalogue and your R2 uploads. Uploaded image names are random and do not overwrite another product's photos.
 
 ## Orders and stock
 
-Real checkout starts disabled. Preview mode shows a sample checkout, with no personal-data form, payment, real order or stock reservation. Once factual product details, pricing, inventory, contact details and policies are ready, disable Preview mode and enable it in Store settings. Leaving Preview mode is blocked while sample products are still published; replace or unpublish those listings first. It accepts cash-on-delivery orders only. The server checks current prices and stock, records the order and deducts inventory together. It does not accept a price submitted by the shopper's browser.
+EasyPaisa checkout is enabled. It collects delivery details, saves an order number and reserves stock. Customers submit a transaction reference and private screenshot on the separate payment page. You can pause ordering with the checkout toggle in Store settings. Enter the actual EasyPaisa account title and number before collecting payments. The server checks current prices and stock, records the order and deducts inventory together. It does not accept a price submitted by the shopper's browser.
 
-Use **Orders** to view contact information and purchased variants, then mark an order confirmed, dispatched, delivered or cancelled. There are no automatic customer emails or courier bookings. Cancelled orders require manual stock adjustment after you verify what should be restocked.
+Use **Orders** to view contact information and purchased variants, then mark an order confirmed, dispatched, delivered or cancelled. Inspect the linked payment screenshot and verify the actual wallet transfer before approving. There are no automatic customer emails or courier bookings. Cancelling an unpaid order automatically releases reserved stock once. Payment must be approved before confirmation or dispatch. Paid orders require a separate refund review before cancellation.
 
 If a product or its stock changes while your edit form is open, saving is blocked with a conflict message. Go back and reopen the product to load current stock, then apply your changes. Stock adjustment history is not included.
 
 ## Backups
 
 Download a catalogue backup regularly. It includes current products, stock, categories and store settings, but excludes customer orders and image bytes. Maintain private D1 database and R2 media backups separately in Cloudflare.
+
+## Sales and inventory ledgers
+
+Use Sales ledger for date/payment/order-status/customer filters and CSV export. Use Inventory ledger to record stock additions/adjustments with a reason, review movement history and export CSV. See [Payments and ledgers](PAYMENTS_AND_LEDGERS.md) for the full workflow. Brand logos, navigation labels and main homepage section copy/photos can be edited in Store settings; page layout and CSS remain developer-controlled.

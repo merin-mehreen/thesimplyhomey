@@ -4,7 +4,7 @@ A complete Cloudflare store backup has several parts. A screenshot records appea
 
 ## 1. Website code and original catalogue photos
 
-Open the GitHub repository, choose the deployed commit (or a release/tag created for it), then use **Code → Download ZIP**. Downloading the current main branch is a backup of current source; it matches the live deployment only if that exact commit was deployed. Original supplied photos are in `Images/`. Photos subsequently uploaded through the admin are in R2, not GitHub.
+Open the GitHub repository, choose the deployed commit (or a release/tag created for it), then use **Code → Download ZIP**. Downloading the current main branch is a backup of current source; it matches the live deployment only if that exact commit was deployed. Original supplied photos are in `Images/`. Photos subsequently uploaded through the admin are in MEDIA R2, not GitHub. Payment screenshots default to private D1 binary storage; with the optional PAYMENTS binding they are stored in that separate private R2 bucket.
 
 For a developer using Git, a full repository backup including available branches and tags can be made with:
 
@@ -23,16 +23,16 @@ Once deployed, visit **/admin → Backup → Download catalogue JSON**. This con
 In a trusted terminal with Cloudflare access, run from the repository:
 
 ```bash
-npx wrangler d1 export homey-store --remote --output=homey-database.sql
+npx wrangler d1 export YOUR_ACTUAL_DATABASE_NAME --remote --output=homey-database.sql
 ```
 
-This exports schema and records, including products, stock, settings and customer orders. Treat the file as private customer data. For an exact point-in-time manual backup, briefly pause real checkout and staff catalogue changes, take the export and media copy, then reopen ordering. Take database backups before schema changes too.
+Replace YOUR_ACTUAL_DATABASE_NAME with the database name shown under your Worker’s DB binding in Cloudflare. Automatic provisioning may give it a different name from the Worker. This exports schema and records, including products, stock, settings and customer orders. Treat the file as private customer data. For an exact point-in-time manual backup, briefly pause real checkout and staff catalogue changes, take the export and media copy, then reopen ordering. Take database backups before schema changes too.
 
 After exporting, test recovery on a separate database before relying on the backup. Keep the migration files with it so the expected schema and triggers can be verified.
 
 ## 4. Uploaded image backup from R2
 
-In Cloudflare, open **R2 → homey-media**. Individual objects can be downloaded there. For a full bucket copy, a developer can configure `rclone` using Cloudflare's R2 documentation, then run:
+If you enabled uploads, open Cloudflare **R2** and choose the bucket linked as your Worker’s **MEDIA** binding. Individual objects can be downloaded there. For a full bucket copy, a developer can configure `rclone` using Cloudflare's R2 documentation, then run:
 
 ```bash
 rclone copy homey-r2:homey-media ./homey-media-backup --progress
@@ -60,3 +60,5 @@ For code-only mistakes, Cloudflare Workers supports deployment rollbacks, but th
 - D1 export: https://developers.cloudflare.com/d1/best-practices/import-export-data/
 - R2 with rclone: https://developers.cloudflare.com/r2/examples/rclone/
 - Worker rollbacks: https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/
+
+Payment evidence must be included in recovery: D1-backed receipt files are part of the full database export; R2-backed receipts require the private PAYMENTS bucket backup. Sales/inventory CSVs include references, not image bytes. Never place these customer/payment backups in the public source repository.
