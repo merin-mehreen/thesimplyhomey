@@ -1,0 +1,19 @@
+{
+  "name": "homey-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "db:local": "wrangler d1 migrations apply homey-store --local",
+    "db:remote": "wrangler d1 migrations apply homey-store --remote",
+    "seed:local": "wrangler d1 execute homey-store --local --file=seed.sql",
+    "seed:remote": "wrangler d1 execute homey-store --remote --file=seed.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
