@@ -2,7 +2,7 @@
 
 | Purpose | Website | Owner sign-in |
 | --- | --- | --- |
-| Current test address | https://home.economicsystems.cc | https://home.economicsystems.cc/admin |
+| Current test address | https://homey.economicsystems.cc | https://homey.economicsystems.cc/admin |
 | Final production address | https://thesimplyhomey.com | https://thesimplyhomey.com/admin |
 
 The application uses relative paths for API calls, shopping pages, payment uploads and admin. Nothing redirects customers to a hardcoded hostname. The temporary test hostname sends a noindex header so it does not compete with the production store in search results; the production storefront remains indexable. Admin cookies are host-only and require HTTPS, so sign in separately on each domain. Do not set a cookie Domain value trying to cover two unrelated parent domains.
@@ -11,7 +11,7 @@ The application uses relative paths for API calls, shopping pages, payment uploa
 
 For the simplest setup, attach both addresses to the same Worker that contains the DB binding and your ADMIN_PASSWORD and SESSION_SECRET secrets. They then share the same catalogue, orders, inventory and admin configuration. Moving from the test address to the final address does not require a new database or another set of secrets when the Worker stays the same.
 
-In Cloudflare, open **Workers & Pages → your existing store Worker → Settings → Domains & Routes → Add → Custom Domain**. Add `home.economicsystems.cc` for current testing. When the final domain is ready, add `thesimplyhomey.com` to that same Worker. Both parent zones must be active in that Cloudflare account. Resolve any existing conflicting DNS record or Worker assignment deliberately in the dashboard; do not delete unrelated DNS entries.
+In Cloudflare, open **Workers & Pages → your existing store Worker → Settings → Domains & Routes → Add → Custom Domain**. Add `homey.economicsystems.cc` for current testing. When the final domain is ready, add `thesimplyhomey.com` to that same Worker. Both parent zones must be active in that Cloudflare account. Resolve any existing conflicting DNS record or Worker assignment deliberately in the dashboard; do not delete unrelated DNS entries.
 
 The repository's default deploy does not claim a future production domain automatically. You can manage domains in Cloudflare, or explicitly put them in Wrangler using:
 
@@ -47,7 +47,7 @@ Open `/api/status` on the same hostname where sign-in is failing. The current re
 
 These fields contain no secret values. If the response shows HTML or a 404 rather than JSON, that hostname is not routing `/api/` to this Worker. If it still displays an older generic admin-setup error, check which deployment/version serves that hostname. An A04 login response means database initialization failed; inspect the private Worker logs.
 
-Cloudflare dashboard secrets belong to a Worker/environment, not to a domain name or the GitHub repository. Verify them on the exact Worker serving `home.economicsystems.cc`. Deploy saved secret changes. The same rule applies to the final domain if you use a different Worker for production.
+Cloudflare dashboard secrets belong to a Worker/environment, not to a domain name or the GitHub repository. Verify them on the exact Worker serving `homey.economicsystems.cc`. Deploy saved secret changes. The same rule applies to the final domain if you use a different Worker for production.
 
 ## Separate staging data, if needed later
 

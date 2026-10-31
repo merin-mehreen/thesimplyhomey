@@ -1,5 +1,5 @@
 import {readFile,writeFile} from 'node:fs/promises';
-export const siteDomains={test:'home.economicsystems.cc',production:'thesimplyhomey.com'};
+export const siteDomains={test:'homey.economicsystems.cc',production:'thesimplyhomey.com'};
 export function routesFor(target){
  if(!['test','production','both'].includes(target))throw new Error('Choose test, production or both.');
  const names=target==='both'?Object.values(siteDomains):[siteDomains[target]];

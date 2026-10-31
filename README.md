@@ -61,4 +61,4 @@ Manual EasyPaisa transfer and evidence review are implemented. There is no gatew
 
 ## Your domains
 
-The same application supports `home.economicsystems.cc` for testing and `thesimplyhomey.com` for production. See [domain setup](docs/DOMAINS.md). Optional `domains:test`, `domains:production` and `domains:both` scripts prepare explicit Custom Domain entries when you are ready to deploy them.
+The same application supports `homey.economicsystems.cc` for testing and `thesimplyhomey.com` for production. See [domain setup](docs/DOMAINS.md). Optional `domains:test`, `domains:production` and `domains:both` scripts prepare explicit Custom Domain entries when you are ready to deploy them.
