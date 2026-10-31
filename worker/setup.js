@@ -1,0 +1,60 @@
+import initialCatalog from '../public/data/catalog.json' with {type:'json'};
+import {base,integrity,stockTrigger} from './schema.generated.js';
+// One promise per binding and isolate, with transactional migration markers for concurrent isolates.
+const pending=new WeakMap();
+async function migrate(db,id,sql){
+ if(await db.prepare('SELECT id FROM homey_schema WHERE id=?').bind(id).first())return;
+ try{await db.batch([db.prepare('INSERT INTO homey_schema(id) VALUES(?)').bind(id),...sql.map(s=>db.prepare(s))]);}
+ catch(error){if(!await db.prepare('SELECT id FROM homey_schema WHERE id=?').bind(id).first())throw error;}
+}
+async function initialize(db){
+ await db.prepare('CREATE TABLE IF NOT EXISTS homey_schema (id TEXT PRIMARY KEY)').run();
+ await migrate(db,'001',base);
+ await migrate(db,'002',[integrity]);
+ const columns=await db.prepare('PRAGMA table_info(products)').all();
+ const names=new Set(columns.results.map(c=>c.name));
+ await migrate(db,'003',[
+  ...(!names.has('revision')?['ALTER TABLE products ADD COLUMN revision INTEGER NOT NULL DEFAULT 0']:[]),
+  ...(!names.has('last_write')?['ALTER TABLE products ADD COLUMN last_write TEXT']:[]),stockTrigger
+ ]);
+ if(!await db.prepare("SELECT id FROM homey_schema WHERE id='catalog-v1'").first()){
+  const statements=[];
+  for(const p of initialCatalog.products){
+   statements.push(db.prepare('INSERT OR IGNORE INTO products(id,data) VALUES(?,?)').bind(p.id,JSON.stringify(p)));
+   for(const v of p.variants)statements.push(db.prepare('INSERT OR IGNORE INTO variants(id,product_id,stock) VALUES(?,?,?)').bind(v.id,p.id,v.stock));
+  }
+  for(const c of initialCatalog.categories)statements.push(db.prepare('INSERT OR IGNORE INTO categories(id,data) VALUES(?,?)').bind(c.id,JSON.stringify(c)));
+  statements.push(db.prepare("INSERT OR IGNORE INTO settings(id,data) VALUES('store',?)").bind(JSON.stringify(initialCatalog.settings)));
+  // Batches stay small for Workers/D1. The completion marker is written last; interrupted imports resume safely.
+  for(let offset=0;offset<statements.length;offset+=40)await db.batch(statements.slice(offset,offset+40));
+  await db.prepare("INSERT OR IGNORE INTO homey_schema(id) VALUES('catalog-v1')").run();
+ }
+ // Upgrade the owner's earlier demo installation without changing prices, stock or order history.
+ if(!await db.prepare("SELECT id FROM homey_schema WHERE id='004-storefront'").first()){
+  const row=await db.prepare("SELECT data FROM settings WHERE id='store'").first();
+  const settings=row?JSON.parse(row.data):null;
+  const changes=[];
+  if(settings?.demoMode===true){
+   delete settings.demoMode;delete settings.sampleContact;
+   settings.checkoutEnabled=true;settings.announcement='';
+   if(settings.email==='hello@example.com')settings.email='';
+   for(const key of ['terms','privacy','shipping','returns'])if(/sample|preview|demo/i.test(settings[key]||''))settings[key]=initialCatalog.settings[key];
+   changes.push(db.prepare("UPDATE settings SET data=? WHERE id='store'").bind(JSON.stringify(settings)));
+   const products=await db.prepare('SELECT id,data FROM products').all();
+   for(const row of products.results){const p=JSON.parse(row.data);if(!p.sample)continue;delete p.sample;
+    const replacement=initialCatalog.products.find(x=>x.id===p.id);
+    if(replacement){p.description=replacement.description;p.care=replacement.care;}
+    for(const variant of p.variants)for(const field of ['size','color','type'])variant[field]=variant[field].replace(/ \(sample\)/gi,'');
+    changes.push(db.prepare('UPDATE products SET data=?,revision=revision+1 WHERE id=?').bind(JSON.stringify(p),row.id));
+   }
+  }
+  try{await db.batch([db.prepare("INSERT INTO homey_schema(id) VALUES('004-storefront')"),...changes]);}
+  catch(error){if(!await db.prepare("SELECT id FROM homey_schema WHERE id='004-storefront'").first())throw error;}
+ }
+}
+export async function ensureDatabase(env){
+ if(!env.DB)return;
+ let ready=pending.get(env.DB);
+ if(!ready){ready=initialize(env.DB).catch(e=>{pending.delete(env.DB);throw e;});pending.set(env.DB,ready);}
+ await ready;
+}

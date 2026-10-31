@@ -23,16 +23,16 @@ Once deployed, visit **/admin → Backup → Download catalogue JSON**. This con
 In a trusted terminal with Cloudflare access, run from the repository:
 
 ```bash
-npx wrangler d1 export homey-store --remote --output=homey-database.sql
+npx wrangler d1 export YOUR_ACTUAL_DATABASE_NAME --remote --output=homey-database.sql
 ```
 
-This exports schema and records, including products, stock, settings and customer orders. Treat the file as private customer data. For an exact point-in-time manual backup, briefly pause real checkout and staff catalogue changes, take the export and media copy, then reopen ordering. Take database backups before schema changes too.
+Replace YOUR_ACTUAL_DATABASE_NAME with the database name shown under your Worker’s DB binding in Cloudflare. Automatic provisioning may give it a different name from the Worker. This exports schema and records, including products, stock, settings and customer orders. Treat the file as private customer data. For an exact point-in-time manual backup, briefly pause real checkout and staff catalogue changes, take the export and media copy, then reopen ordering. Take database backups before schema changes too.
 
 After exporting, test recovery on a separate database before relying on the backup. Keep the migration files with it so the expected schema and triggers can be verified.
 
 ## 4. Uploaded image backup from R2
 
-In Cloudflare, open **R2 → homey-media**. Individual objects can be downloaded there. For a full bucket copy, a developer can configure `rclone` using Cloudflare's R2 documentation, then run:
+If you enabled uploads, open Cloudflare **R2** and choose the bucket linked as your Worker’s **MEDIA** binding. Individual objects can be downloaded there. For a full bucket copy, a developer can configure `rclone` using Cloudflare's R2 documentation, then run:
 
 ```bash
 rclone copy homey-r2:homey-media ./homey-media-backup --progress
