@@ -9,7 +9,7 @@ The application uses relative paths for API calls, shopping pages, payment uploa
 
 ## Use one Worker with both domain names
 
-For the simplest setup, attach both addresses to the same Worker that contains the DB binding and your ADMIN_PASSWORD and SESSION_SECRET secrets. They then share the same catalogue, orders, inventory and admin configuration. Moving from the test address to the final address does not require a new database or another set of secrets when the Worker stays the same.
+Your deployment log confirms the store Worker is named `temp`. For the simplest setup, attach both addresses to the same Worker that contains the DB binding and your ADMIN_PASSWORD and SESSION_SECRET secrets. They then share the same catalogue, orders, inventory and admin configuration. Moving from the test address to the final address does not require a new database or another set of secrets when the Worker stays the same.
 
 In Cloudflare, open **Workers & Pages → your existing store Worker → Settings → Domains & Routes → Add → Custom Domain**. Add `homey.economicsystems.cc` for current testing. When the final domain is ready, add `thesimplyhomey.com` to that same Worker. Both parent zones must be active in that Cloudflare account. Resolve any existing conflicting DNS record or Worker assignment deliberately in the dashboard; do not delete unrelated DNS entries.
 

@@ -15,7 +15,7 @@ In Cloudflare, open **Workers & Pages**, create/import a **Worker** from GitHub,
 | Root directory | Repository root (leave blank, or `/` if required) |
 | Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy` |
-| Worker name | `homey-store` (matching `wrangler.jsonc`) |
+| Worker name | `temp` (matching the existing Worker and `wrangler.jsonc`) |
 | Node version | `24` (`.node-version` is included; set `NODE_VERSION=24` if necessary) |
 
 Use the Worker deployment flow: uploading `dist/` as static files alone would omit the API, admin and order persistence. Wrangler invokes the asset build even if no separate build command has been entered. No database ID needs to be copied into the repository for a new installation. Wrangler provisions and links the `DB` binding; its token/account permissions must permit Worker and D1 creation.

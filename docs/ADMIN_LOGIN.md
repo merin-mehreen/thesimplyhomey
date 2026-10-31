@@ -27,3 +27,22 @@ The application logs only binding presence and validation results for configurat
 In Cloudflare, use **Workers & Pages → the Worker serving your website → Settings → Variables and Secrets**. After adding or editing secrets, deploy the changes. Check that the production deployment, rather than an older version or a separate preview Worker, serves the address you are opening. A Cloudflare redeploy does not update a local checkout.
 
 For secure cookie handling, use HTTPS on the deployed site. During local development use `localhost` rather than a custom plain-HTTP hostname. Once signed in, the cookie is HttpOnly and expires after eight hours.
+
+## The Worker confirmed by your build log
+
+The successful deployment uploads **temp**, with direct address `https://temp.abdullah-nauman.workers.dev`. The Wrangler configuration now uses `temp` as well, so local CLI commands and Git deployments target the same Worker. Keep its inherited DB binding. The npm package name `homey-store` in build output is only the project/package label, not a second deployed Worker.
+
+### Runtime secrets versus build secrets
+
+Cloudflare has two different settings areas. **Settings → Build → Build variables and secrets** affects the build process only. Login needs **temp → Settings → Variables and Secrets**, outside Build. Set ADMIN_PASSWORD and SESSION_SECRET there as Secret values, then deploy the change. These runtime values are not inferred from build-time variables or from a different Worker's settings.
+
+If the dashboard location is unclear, a trusted terminal can set the correct runtime secrets directly. Wrangler prompts for each value privately:
+
+```bash
+npx wrangler secret put ADMIN_PASSWORD --name temp
+npx wrangler secret put SESSION_SECRET --name temp
+```
+
+Do not put secret values directly into the command line or into repository files. These commands create/deploy a Worker version containing the corresponding runtime secret. Recheck `/api/status` after both are configured.
+
+Official reference: https://developers.cloudflare.com/workers/ci-cd/builds/configuration/

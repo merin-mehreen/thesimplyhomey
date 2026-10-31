@@ -15,7 +15,7 @@ Open Wrangler's printed URL. The schema and initial catalogue are created automa
 
 ## Deploy
 
-Connect this repository to **Cloudflare Workers**. Root: repository root. Build: `npm run build`. Deploy: `npx wrangler deploy`. Worker name: `homey-store` (or update Wrangler's name to match your existing Worker). D1 is provisioned automatically; there are no placeholder IDs to replace. The asset build also runs automatically when Wrangler deploys.
+Connect this repository to **Cloudflare Workers**. Root: repository root. Build: `npm run build`. Deploy: `npx wrangler deploy`. Worker name: `temp`, matching the existing Worker in this Cloudflare account. D1 is provisioned automatically; there are no placeholder IDs to replace. The asset build also runs automatically when Wrangler deploys.
 
 Full instructions: [Payment flow and ledgers](docs/PAYMENTS_AND_LEDGERS.md), [Login troubleshooting](docs/ADMIN_LOGIN.md), [Cloudflare setup](docs/CLOUDFLARE.md), [Store management](docs/ADMIN.md), [Backup and recovery](docs/BACKUPS.md).
 

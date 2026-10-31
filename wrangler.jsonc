@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "homey-store",
+  "name": "temp",
   "main": "worker/index.js",
   "compatibility_date": "2026-10-31",
   "assets": {
