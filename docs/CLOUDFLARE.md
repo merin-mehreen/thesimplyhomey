@@ -35,7 +35,7 @@ npm test
 npm run deploy
 ```
 
-Open the returned `workers.dev` URL and `/admin`. Initial seeding uses `INSERT OR IGNORE`: subsequent frontend deployments and repeated seed imports preserve existing database edits. Migrations are applied separately and must run when new migrations are introduced.
+Open the returned `workers.dev` URL and `/admin`. The initial import now contains labelled sample prices, sizes and stock, with Preview mode enabled. Demo checkout does not create real orders. Initial seeding uses `INSERT OR IGNORE`: subsequent frontend deployments and repeated seed imports preserve existing database edits. Migrations are applied separately and must run when new migrations are introduced.
 
 ## GitHub automatic deployments
 
@@ -60,7 +60,7 @@ Attach the purchased domain through your Worker's custom-domain settings after t
 4. Replace Raya placeholder photos and uncheck placeholder before publishing jewellery.
 5. Replace all provisional policy text with your real delivery, returns, terms and privacy policies.
 6. Confirm delivery charges, currency and that cash-on-delivery is appropriate for your service area.
-7. Enable checkout, place a controlled test order and confirm it appears in the admin with correct stock and totals.
+7. Replace or unpublish sample products, disable Preview mode, enable checkout, place a controlled test order and confirm it appears in the admin with correct stock and totals.
 8. Verify mobile browsing, contact links and fulfilment steps before advertising the store.
 
 Checkout does not process card payments. Do not collect card details via product forms, WhatsApp or email. A payment provider can be added later using server-created payment sessions and verified webhooks.
@@ -70,3 +70,5 @@ Checkout does not process card payments. Do not collect card details via product
 Use `/admin` → Backup for a catalogue JSON export. It excludes customer orders and image bytes. Use Cloudflare's D1 export/backup features for the full database, and a separate backup of R2 media. Keep access to those backups private.
 
 The read-only JSON fallback is for unconfigured previews only. Public `/api/catalog` strips drafts and placeholder products. Once `DB` is bound, the database is authoritative; a missing/uninitialized database returns a setup error instead of pretending an edit was saved.
+
+For a complete backup, follow [Backup and recovery](BACKUPS.md). The admin catalogue JSON alone is not a full website backup.

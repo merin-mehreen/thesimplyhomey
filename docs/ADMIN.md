@@ -14,7 +14,7 @@ Visit `/admin` on your store's address. Sign in using the admin password configu
 8. Tick **Published** to show it in the store. **Featured** makes a homéy product eligible for the homepage's four featured positions. The category must also be published.
 9. Save changes. The live catalogue reads the updated data on its next load; no deployment is required.
 
-The imported “Standard — dimensions to confirm” values are setup placeholders. Replace them with actual sizes before taking orders. Different photos within one source folder are kept as a gallery; do not assume they represent purchasable colour variants until you confirm that.
+Imported prices, sizes and stock are sample values, labelled in the preview banner and descriptions. Replace them with actual values before taking orders. For each product, uncheck “Contains sample prices, options or information” only after replacing those values. Different photos within one source folder are kept as a gallery; do not assume they represent purchasable colour variants until you confirm that.
 
 ## Add a category
 
@@ -24,7 +24,7 @@ Raya products remain inside the same store and shopping bag. Their pages use the
 
 ## Contact details, content and policies
 
-In **Store settings**, update shared email, WhatsApp, Instagram and Facebook fields. Use the international WhatsApp number and full `https://` social URLs. These settings feed every customer-facing contact link. Empty fields are omitted rather than linking to a fake account.
+In **Store settings**, update shared email, WhatsApp, Instagram and Facebook fields. Use the international WhatsApp number and full `https://` social URLs. These settings feed every customer-facing contact link. In Preview mode, example contact details are displayed as plain text, with no live links to unverified accounts. Replace them with real contacts before launch.
 
 The same screen controls the top announcement, homepage headline/introduction/image, brand introductions, delivery fee, ordering toggle and policy pages. Colour palettes and page composition remain code-level design settings.
 
@@ -34,7 +34,7 @@ Use **Media** to upload JPEG, PNG or WebP images up to 10 MB each. Select a thum
 
 ## Orders and stock
 
-Checkout starts disabled. Once factual product details, pricing, inventory, contact details and policies are ready, enable it in Store settings. It accepts cash-on-delivery orders only. The server checks current prices and stock, records the order and deducts inventory together. It does not accept a price submitted by the shopper's browser.
+Real checkout starts disabled. Preview mode shows a sample checkout, with no personal-data form, payment, real order or stock reservation. Once factual product details, pricing, inventory, contact details and policies are ready, disable Preview mode and enable it in Store settings. Leaving Preview mode is blocked while sample products are still published; replace or unpublish those listings first. It accepts cash-on-delivery orders only. The server checks current prices and stock, records the order and deducts inventory together. It does not accept a price submitted by the shopper's browser.
 
 Use **Orders** to view contact information and purchased variants, then mark an order confirmed, dispatched, delivered or cancelled. There are no automatic customer emails or courier bookings. Cancelled orders require manual stock adjustment after you verify what should be restocked.
 

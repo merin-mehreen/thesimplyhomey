@@ -6,28 +6,45 @@
       "name": "Botanical Morning",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/1/IMG-20261031-WA0040.jpg",
         "/Images/catalogue/Home/bedsheets/1/IMG-20261031-WA0041.jpg",
         "/Images/catalogue/Home/bedsheets/1/IMG-20261031-WA0042.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 5900,
+      "compareAt": 7375,
       "published": true,
       "featured": true,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-1-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-1-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 6900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-1-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 8300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "bedsheets-2",
@@ -35,27 +52,44 @@
       "name": "Meadow Study",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/2/IMG-20261031-WA0043.jpg",
         "/Images/catalogue/Home/bedsheets/2/IMG-20261031-WA0044.jpg"
       ],
-      "price": null,
+      "price": 6900,
       "compareAt": null,
       "published": true,
       "featured": true,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-2-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-2-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 7900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-2-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 9300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "bedsheets-3",
@@ -63,27 +97,44 @@
       "name": "Rose Garden",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/3/IMG-20261031-WA0046.jpg",
         "/Images/catalogue/Home/bedsheets/3/IMG-20261031-WA0048.jpg"
       ],
-      "price": null,
+      "price": 7900,
       "compareAt": null,
       "published": true,
       "featured": true,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-3-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-3-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 8900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-3-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 10300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "bedsheets-4",
@@ -91,27 +142,44 @@
       "name": "Midnight Check",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/4/IMG-20261031-WA0081.jpg",
         "/Images/catalogue/Home/bedsheets/4/IMG-20261031-WA0082.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 8900,
+      "compareAt": 11125,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-4-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-4-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 9900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-4-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 11300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "bedsheets-5",
@@ -119,28 +187,45 @@
       "name": "Linen Stillness",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/5/IMG-20261031-WA0083.jpg",
         "/Images/catalogue/Home/bedsheets/5/IMG-20261031-WA0084.jpg",
         "/Images/catalogue/Home/bedsheets/5/IMG-20261031-WA0085.jpg"
       ],
-      "price": null,
+      "price": 5900,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-5-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-5-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 6900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-5-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 8300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "bedsheets-6",
@@ -148,27 +233,44 @@
       "name": "Greenhouse",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/6/IMG-20261031-WA0086.jpg",
         "/Images/catalogue/Home/bedsheets/6/IMG-20261031-WA0087.jpg"
       ],
-      "price": null,
+      "price": 6900,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-6-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-6-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 7900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-6-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 9300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "bedsheets-7",
@@ -176,27 +278,44 @@
       "name": "Orchard Branch",
       "category": "bedsheets",
       "brand": "homey",
-      "description": "A considered addition to the bedroom, selected for its colour and pattern. Contact us for the fabric composition, measurements and set contents.",
+      "description": "A botanical or patterned bed-linen design from the homéy collection. Sample listing: shown with example sizes, set options and prices for preview. Fabric composition and exact set contents will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/bedsheets/7/IMG-20261031-WA0088.jpg",
         "/Images/catalogue/Home/bedsheets/7/IMG-20261031-WA0089.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 7900,
+      "compareAt": 9875,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "bedsheets-7-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "Queen (sample)",
           "color": "As pictured",
-          "type": "Bed linen — contents to confirm",
+          "type": "3-piece set (sample)",
           "price": null,
-          "stock": 0
+          "stock": 12
+        },
+        {
+          "id": "bedsheets-7-king",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "3-piece set (sample)",
+          "price": 8900,
+          "stock": 8
+        },
+        {
+          "id": "bedsheets-7-complete",
+          "size": "King (sample)",
+          "color": "As pictured",
+          "type": "5-piece set (sample)",
+          "price": 10300,
+          "stock": 4
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-1",
@@ -204,28 +323,37 @@
       "name": "Botanical Border",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/1/IMG-20261031-WA0006.jpg",
         "/Images/catalogue/Home/towels/1/IMG-20261031-WA0007.jpg",
         "/Images/catalogue/Home/towels/1/IMG-20261031-WA0008.jpg"
       ],
-      "price": null,
+      "price": 1900,
       "compareAt": null,
       "published": true,
       "featured": true,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-1-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-1-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1140,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-2",
@@ -233,28 +361,37 @@
       "name": "Sage Diamond",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/2/IMG-20261031-WA0009.jpg",
         "/Images/catalogue/Home/towels/2/IMG-20261031-WA0010.jpg",
         "/Images/catalogue/Home/towels/2/IMG-20261031-WA0011.jpg"
       ],
-      "price": null,
+      "price": 2250,
       "compareAt": null,
       "published": true,
       "featured": true,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-2-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-2-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1350,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-3",
@@ -262,27 +399,36 @@
       "name": "Earth Stripe",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/3/IMG-20261031-WA0074.jpg",
         "/Images/catalogue/Home/towels/3/IMG-20261031-WA0077.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 2600,
+      "compareAt": 3250,
       "published": true,
       "featured": true,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-3-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-3-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1560,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-4",
@@ -290,28 +436,37 @@
       "name": "Garden Mosaic",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/4/IMG-20261031-WA0071.jpg",
         "/Images/catalogue/Home/towels/4/IMG-20261031-WA0073.jpg",
         "/Images/catalogue/Home/towels/4/IMG-20261031-WA0076.jpg"
       ],
-      "price": null,
+      "price": 1200,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-4-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-4-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 720,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-5",
@@ -319,28 +474,37 @@
       "name": "Olive Geometry",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/5/IMG-20261031-WA0012.jpg",
         "/Images/catalogue/Home/towels/5/IMG-20261031-WA0014.jpg",
         "/Images/catalogue/Home/towels/5/IMG-20261031-WA0032.jpg"
       ],
-      "price": null,
+      "price": 1550,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-5-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-5-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 930,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-6",
@@ -348,7 +512,7 @@
       "name": "Indigo Botanicals",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/6/IMG-20261031-WA0013.jpg",
         "/Images/catalogue/Home/towels/6/IMG-20261031-WA0015.jpg",
@@ -356,22 +520,31 @@
         "/Images/catalogue/Home/towels/6/IMG-20261031-WA0017.jpg",
         "/Images/catalogue/Home/towels/6/IMG-20261031-WA0018.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 1900,
+      "compareAt": 2375,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-6-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-6-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1140,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-7",
@@ -379,28 +552,37 @@
       "name": "Linen Stripe",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/7/IMG-20261031-WA0019.jpg",
         "/Images/catalogue/Home/towels/7/IMG-20261031-WA0020.jpg",
         "/Images/catalogue/Home/towels/7/IMG-20261031-WA0021.jpg"
       ],
-      "price": null,
+      "price": 2250,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-7-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-7-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1350,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-8",
@@ -408,29 +590,38 @@
       "name": "Sand Rib",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/8/IMG-20261031-WA0022.jpg",
         "/Images/catalogue/Home/towels/8/IMG-20261031-WA0023.jpg",
         "/Images/catalogue/Home/towels/8/IMG-20261031-WA0024.jpg",
         "/Images/catalogue/Home/towels/8/IMG-20261031-WA0025.jpg"
       ],
-      "price": null,
+      "price": 2600,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-8-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-8-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1560,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-9",
@@ -438,27 +629,36 @@
       "name": "Fine Stripe",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/9/IMG-20261031-WA0026.jpg",
         "/Images/catalogue/Home/towels/9/IMG-20261031-WA0027.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 1200,
+      "compareAt": 1500,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-9-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-9-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 720,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-10",
@@ -466,27 +666,36 @@
       "name": "Ivory Ritual",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/10/IMG-20261031-WA0028.jpg",
         "/Images/catalogue/Home/towels/10/IMG-20261031-WA0030.jpg"
       ],
-      "price": null,
+      "price": 1550,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-10-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-10-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 930,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-11",
@@ -494,29 +703,38 @@
       "name": "Rose Ritual",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/11/IMG-20261031-WA0029.jpg",
         "/Images/catalogue/Home/towels/11/IMG-20261031-WA0031.jpg",
         "/Images/catalogue/Home/towels/11/IMG-20261031-WA0033.jpg",
         "/Images/catalogue/Home/towels/11/IMG-20261031-WA0034.jpg"
       ],
-      "price": null,
+      "price": 1900,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-11-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-11-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1140,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-12",
@@ -524,26 +742,35 @@
       "name": "Quiet Border",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/12/IMG-20261031-WA0030.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 2250,
+      "compareAt": 2813,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-12-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-12-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1350,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-13",
@@ -551,27 +778,36 @@
       "name": "Damask Study",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/13/IMG-20261031-WA0035.jpg",
         "/Images/catalogue/Home/towels/13/IMG-20261031-WA0036.jpg"
       ],
-      "price": null,
+      "price": 2600,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-13-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-13-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1560,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-14",
@@ -579,28 +815,37 @@
       "name": "Olive Scroll",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/14/IMG-20261031-WA0037.jpg",
         "/Images/catalogue/Home/towels/14/IMG-20261031-WA0038.jpg",
         "/Images/catalogue/Home/towels/14/IMG-20261031-WA0039.jpg"
       ],
-      "price": null,
+      "price": 1200,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-14-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-14-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 720,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-15",
@@ -608,28 +853,37 @@
       "name": "Evening Botanical",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/15/IMG-20261031-WA0075.jpg",
         "/Images/catalogue/Home/towels/15/IMG-20261031-WA0078.jpg",
         "/Images/catalogue/Home/towels/15/IMG-20261031-WA0080.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 1550,
+      "compareAt": 1938,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-15-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-15-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 930,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-16",
@@ -637,28 +891,37 @@
       "name": "Coastal Blue",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/16/IMG-20261031-WA0069.jpg",
         "/Images/catalogue/Home/towels/16/IMG-20261031-WA0070.jpg",
         "/Images/catalogue/Home/towels/16/IMG-20261031-WA0072.jpg"
       ],
-      "price": null,
+      "price": 1900,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-16-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-16-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1140,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-17",
@@ -666,28 +929,37 @@
       "name": "Riviera Stripe",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/17/IMG-20261031-WA0066.jpg",
         "/Images/catalogue/Home/towels/17/IMG-20261031-WA0067.jpg",
         "/Images/catalogue/Home/towels/17/IMG-20261031-WA0068.jpg"
       ],
-      "price": null,
+      "price": 2250,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-17-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-17-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1350,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-18",
@@ -695,7 +967,7 @@
       "name": "Poolside Check",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/18/IMG-20261031-WA0058.jpg",
         "/Images/catalogue/Home/towels/18/IMG-20261031-WA0059.jpg",
@@ -704,22 +976,31 @@
         "/Images/catalogue/Home/towels/18/IMG-20261031-WA0064.jpg",
         "/Images/catalogue/Home/towels/18/IMG-20261031-WA0065.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 2600,
+      "compareAt": 3250,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-18-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-18-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1560,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-19",
@@ -727,27 +1008,36 @@
       "name": "Charcoal Weave",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/19/IMG-20261031-WA0062.jpg",
         "/Images/catalogue/Home/towels/19/IMG-20261031-WA0063.jpg"
       ],
-      "price": null,
+      "price": 1200,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-19-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-19-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 720,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-20",
@@ -755,29 +1045,38 @@
       "name": "Rose Check",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/20/IMG-20261031-WA0053.jpg",
         "/Images/catalogue/Home/towels/20/IMG-20261031-WA0055.jpg",
         "/Images/catalogue/Home/towels/20/IMG-20261031-WA0056.jpg",
         "/Images/catalogue/Home/towels/20/IMG-20261031-WA0057.jpg"
       ],
-      "price": null,
+      "price": 1550,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-20-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-20-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 930,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-21",
@@ -785,27 +1084,36 @@
       "name": "Slate Stripe",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/21/IMG-20261031-WA0052.jpg",
         "/Images/catalogue/Home/towels/21/IMG-20261031-WA0054.jpg"
       ],
-      "price": null,
-      "compareAt": null,
+      "price": 1900,
+      "compareAt": 2375,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-21-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-21-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1140,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "towels-22",
@@ -813,29 +1121,38 @@
       "name": "Blush Damask",
       "category": "towels",
       "brand": "homey",
-      "description": "A towel design from the homéy collection. Contact us for the fabric composition, measurements and available colours.",
+      "description": "A towel design selected for the homéy collection. Sample listing: example sizes and stock are shown for preview; fabric composition, measurements and available colours will be confirmed before sale.",
       "images": [
         "/Images/catalogue/Home/towels/22/IMG-20261031-WA0045.jpg",
         "/Images/catalogue/Home/towels/22/IMG-20261031-WA0047.jpg",
         "/Images/catalogue/Home/towels/22/IMG-20261031-WA0049.jpg",
         "/Images/catalogue/Home/towels/22/IMG-20261031-WA0051.jpg"
       ],
-      "price": null,
+      "price": 2250,
       "compareAt": null,
       "published": true,
       "featured": false,
       "placeholder": false,
-      "care": "Care instructions will be confirmed with your order.",
+      "care": "Sample care note: follow the care label supplied with the final product. Product-specific washing instructions are to be confirmed.",
       "variants": [
         {
           "id": "towels-22-standard",
-          "size": "Standard — dimensions to confirm",
+          "size": "70 × 140 cm (sample)",
           "color": "As pictured",
-          "type": "Towel",
+          "type": "Bath towel (sample)",
           "price": null,
-          "stock": 0
+          "stock": 20
+        },
+        {
+          "id": "towels-22-hand",
+          "size": "40 × 70 cm (sample)",
+          "color": "As pictured",
+          "type": "Hand towel (sample)",
+          "price": 1350,
+          "stock": 15
         }
-      ]
+      ],
+      "sample": true
     },
     {
       "id": "raya-preview",
@@ -903,21 +1220,23 @@
     "name": "homéy",
     "tagline": "Simply Home.",
     "currency": "PKR",
-    "email": "",
+    "email": "hello@example.com",
     "whatsapp": "",
     "instagram": "",
     "facebook": "",
-    "announcement": "Bed linen, bath & the art of everyday living",
+    "announcement": "Preview collection · Sample prices and options · No real orders",
     "heroTitle": "A home,\nwell composed.",
     "heroText": "Linens to live with. Colours that belong. Discover a considered collection for the everyday.",
     "heroImage": "/Images/catalogue/Home/bedsheets/1/IMG-20261031-WA0040.jpg",
     "about": "Some homes are decorated. Others are composed. At homéy, we don’t design — we curate. We search for linens that feel wonderful to live with: soft, enduring and quietly luxurious. Towels, bedsheets and table linens in pastels, prints, and quiet neutrals — chosen with an eye that knows what belongs.",
     "rayaAbout": "Raya atelier is a silver atelier where quiet luxury meets precious stones. We craft timeless silver adorned with real precious stones. Designed to catch the light and hold meaning.",
     "checkoutEnabled": false,
-    "shippingFee": 0,
-    "terms": "Our online ordering service is being prepared. Product prices, availability, delivery charges and order acceptance will be confirmed before a purchase is completed. This page will be updated with the store’s final terms before online ordering opens.",
-    "privacy": "We use information you submit to respond to enquiries and, when online ordering is enabled, to fulfil orders. Your shopping bag is saved in your browser. Contact details, data retention periods, service providers and your privacy request process will be published here before online ordering opens.",
-    "shipping": "Delivery areas, charges and delivery times will be confirmed before online ordering opens.",
-    "returns": "The returns and exchanges policy is being finalised. Please contact us before purchasing for the applicable conditions."
+    "shippingFee": 300,
+    "terms": "Sample terms for preview only. Prices, discounts, sizes and stock shown in this preview are examples. Demo checkout does not create a real order, request payment or reserve stock. Final commercial terms will replace this page before the store opens.",
+    "privacy": "Preview privacy information: your shopping bag is stored in your browser. Demo checkout does not request personal details, create a customer record or take payment. Real contact details, service providers and retention periods will be added before live ordering opens.",
+    "shipping": "Sample delivery policy: delivery charge PKR 300 and estimated delivery in 3–5 working days. These are examples for layout review and are not a delivery commitment.",
+    "returns": "Sample returns policy: request an exchange within 7 days of delivery, with unused items and original packaging. This is draft example text; final product eligibility and conditions must be confirmed before launch.",
+    "demoMode": true,
+    "sampleContact": "Email: hello@example.com · WhatsApp: +92 XXX XXXXXXX · Instagram / Facebook: @homey.example"
   }
 }

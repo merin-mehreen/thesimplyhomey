@@ -16,11 +16,11 @@ A Cloudflare Workers storefront and password-protected management area, with Ray
 
 The source is ready to configure on Cloudflare. A GitHub push alone does **not** create D1/R2 or deploy a live store.
 
-Prices, measurements, fabric composition, set contents, contact details and commercial policies have not been supplied. The imported products therefore have enquiry pricing and zero stock. Product names are editable working titles. Online checkout starts **off**. Finalise factual product descriptions and delivery/returns/privacy/terms content before opening ordering. No card-payment provider is connected.
+Real prices, measurements, fabric composition, set contents, contact details and commercial policies have not been supplied. The imported products now have clearly labelled sample prices, variants and stock in preview mode. Product names are editable working titles. Real checkout starts **off**; preview mode offers a demo checkout without collecting personal details or creating orders. Finalise factual product descriptions and delivery/returns/privacy/terms content before opening ordering. No card-payment provider is connected.
 
 ## Quick setup
 
-See [Cloudflare setup](docs/CLOUDFLARE.md) for deployment and [Store management](docs/ADMIN.md) for everyday editing.
+See [Backup and recovery](docs/BACKUPS.md), [Cloudflare setup](docs/CLOUDFLARE.md) for deployment and [Store management](docs/ADMIN.md) for everyday editing.
 
 ```bash
 npm ci
