@@ -91,3 +91,5 @@ The code uses a manual EasyPaisa transfer flow with order references, private pa
 For backups, see [Backup and recovery](BACKUPS.md). D1 and R2 data are separate from the GitHub source.
 
 Payment screenshots work without R2: the default is private D1 binary storage up to 1 MB. With PAYMENTS R2 configured, new screenshots use that private bucket up to 5 MB. See [Payments and ledgers](PAYMENTS_AND_LEDGERS.md).
+
+For `home.economicsystems.cc` now and `thesimplyhomey.com` at launch, see [Domains and login checks](DOMAINS.md).

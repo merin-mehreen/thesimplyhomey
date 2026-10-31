@@ -12,7 +12,10 @@
     "db:remote": "wrangler d1 migrations apply DB --remote",
     "seed:local": "wrangler d1 execute DB --local --file=seed.sql",
     "seed:remote": "wrangler d1 execute DB --remote --file=seed.sql",
-    "storage:enable": "node scripts/enable-media.mjs"
+    "storage:enable": "node scripts/enable-media.mjs",
+    "domains:test": "node scripts/configure-domains.mjs test",
+    "domains:production": "node scripts/configure-domains.mjs production",
+    "domains:both": "node scripts/configure-domains.mjs both"
   },
   "devDependencies": {
     "wrangler": "4.156.0"

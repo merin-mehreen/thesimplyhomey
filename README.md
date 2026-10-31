@@ -58,3 +58,7 @@ Frontend deployments preserve stored catalogue edits and orders. Do not regenera
 ## Operating limits
 
 Manual EasyPaisa transfer and evidence review are implemented. There is no gateway integration, card processing, automated email, courier booking, tax engine or automated refund. Stock is reserved on placement; unpaid cancellation releases it exactly once. Unpaid orders do not automatically expire. Ledgers are paginated and filtered CSV exports allow up to 10,000 rows. The media picker lists up to 1,000 uploads. Stale product forms are rejected if stock or product data changed while you were editing. Catalogue JSON exports exclude orders and image bytes; keep full database/media backups separately.
+
+## Your domains
+
+The same application supports `home.economicsystems.cc` for testing and `thesimplyhomey.com` for production. See [domain setup](docs/DOMAINS.md). Optional `domains:test`, `domains:production` and `domains:both` scripts prepare explicit Custom Domain entries when you are ready to deploy them.
