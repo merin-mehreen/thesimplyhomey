@@ -26,7 +26,7 @@ Full instructions: [Payment flow and ledgers](docs/PAYMENTS_AND_LEDGERS.md), [Lo
 - Product galleries, size/colour/type variants, prices, discounts, search and saved shopping bag.
 - Dedicated cart, checkout and payment pages. Manual EasyPaisa transfer, private screenshot submission and owner payment approval. No cash on delivery.
 - Admin product/category management, brand logos, homepage copy/photos, contacts/policies, EasyPaisa details, evidence review, order status, sales ledger and inventory ledger with filters and CSV exports.
-- Cloudflare D1 for persistent records. Payment screenshots default to private D1 storage (1 MB). Optional private PAYMENTS R2 supports 5 MB. Catalogue uploads use the owner-created `homey` R2 bucket bound as `MEDIA`; original photos and HTTPS image URLs also remain available. See [media setup](docs/MEDIA.md).
+- Cloudflare D1 for persistent records. Payment screenshots default to private D1 storage (1 MB). Optional private PAYMENTS R2 supports 5 MB. Catalogue uploads use a per-Worker R2 bucket bound as `MEDIA` (existing bindings are inherited; otherwise Wrangler provisions a bucket in the deployment account); original photos and HTTPS image URLs also remain available. See [media setup](docs/MEDIA.md).
 - Signed HttpOnly sessions, login throttling, same-origin writes, transactional inventory checks and protection against stale admin edits.
 - Raya's placeholder listing stays private until actual jewellery images/details are ready.
 

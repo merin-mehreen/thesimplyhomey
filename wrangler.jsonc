@@ -18,8 +18,7 @@
   ],
   "r2_buckets": [
     {
-      "binding": "MEDIA",
-      "bucket_name": "homey"
+      "binding": "MEDIA"
     }
   ],
   "build": {
