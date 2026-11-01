@@ -1,4 +1,5 @@
 /* Adapted from the supplied brand-surfaces.css.
+ * Pre-rendered paper tiles avoid procedural SVG noise/filter work in the browser.
  * Original palette, layout and background layers remain.
  * One isolated paper layer sits behind content, never on images or controls.
  */
@@ -8,10 +9,10 @@
   --homey-text: #4F5644;
   --muted: var(--homey-text);
   --raya-text: #70562B;
-  --ivory-paper: url("./assets/textures/homey-warm-ivory-paper.svg");
+  --ivory-paper: url("./assets/textures/homey-warm-ivory-paper-v1.webp");
   --plain-control-base: var(--paper, #EFE6D6);
-  --homey-paper: url("./assets/textures/homey-paper.svg");
-  --raya-paper: url("./assets/textures/raya-blush-paper.svg");
+  --homey-paper: url("./assets/textures/homey-paper-v1.webp");
+  --raya-paper: url("./assets/textures/raya-blush-paper-v1.webp");
   --surface-paper: var(--homey-paper);
   --surface-paper-size: 512px 512px;
   --surface-base: var(--homey-linen);
@@ -77,7 +78,7 @@ body.raya {
 }
 
 /* Same fixed CSS-pixel tile sizes on every viewport; no scaling media queries.
- * The SVGs retain their supplied opacity. Text, images and focus rings stay opaque.
+ * Tiles bake the supplied SVG opacity into the approved base. Content stays opaque.
  * Material decoration communicates no essential information.
  */
 @media (prefers-contrast: more), (forced-colors: active) {
@@ -98,7 +99,7 @@ body.raya {
 
 /* The page canvas is the single ivory owner for transparent main/section content.
  * The opaque header needs its own surface; no positioning or opacity changes.
- * The supplied ivory SVG includes its base, so never use it over linen/blush.
+ * The pre-rendered tiles include their base, so use each only on its matching colour.
  */
 body:not(.admin-body),
 .site-header,

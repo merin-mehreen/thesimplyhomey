@@ -1,6 +1,6 @@
 # Homéy and Raya paper surfaces
 
-The current finish uses the supplied linen, blush and Warm Ivory SVGs. The ivory update supersedes the previous instruction to keep ivory plain. Base colours remain Warm Linen `#E0DAD0`, Petal Blush `#F5E5DE` and Warm Ivory `#EFE6D6`. All three source SVGs retain their supplied bytes and opacity.
+The current finish uses pre-rendered WebP tiles exported from the supplied linen, blush and Warm Ivory SVGs. Browsers no longer render the procedural SVG filters on page backgrounds. The ivory update supersedes the previous instruction to keep ivory plain. Base colours remain Warm Linen `#E0DAD0`, Petal Blush `#F5E5DE` and Warm Ivory `#EFE6D6`. All three source SVGs retain their supplied bytes and opacity.
 
 ## Source and surface audit
 
@@ -22,18 +22,18 @@ The current finish uses the supplied linen, blush and Warm Ivory SVGs. The ivory
 | Admin canvas, navigation, active buttons, ledger statistics and media UI | Plain; admin does not load the surface stylesheet. |
 | `color: var(--paper)` on accent controls/announcement/notice | Text colour, not a background conversion. Existing accent colours, borders and shadows are retained. |
 
-The ivory SVG contains its own opaque ivory base and is used only on ivory surfaces. Linen/blush overlays remain isolated `::before` backgrounds over their original opaque base fills. Their parent/child relationships do not create overlapping visible paper. The header has no existing background image to displace. The public page canvas likewise has no pre-existing image or gradient.
+Each WebP tile includes its matching approved base colour. The source ivory SVG already contains its opaque ivory base; the transparent linen/blush sources were composited onto their approved base colours during export. Linen/blush paper remains on isolated `::before` backgrounds over the same CSS base fills. Their parent/child relationships do not create overlapping visible paper. The header has no existing background image to displace. The public page canvas likewise has no pre-existing image or gradient.
 
 ## Shared implementation
 
-`public/index.html` already loads `public/brand-surfaces.css` after `styles.css`. The existing build copies the stylesheet and all assets under `public/assets/textures/` to `dist/`. CSS resolves the local SVG paths relative to the stylesheet. No media uploads, R2 bindings, external services or runtime texture-loading JavaScript are involved.
+`public/index.html` already loads `public/brand-surfaces.css` after `styles.css`. The existing build copies the stylesheet and all assets under `public/assets/textures/` to `dist/`. CSS resolves the versioned local WebP paths relative to the stylesheet. The original SVGs remain unchanged as design masters and are not requested by the runtime surface CSS. No media uploads, R2 bindings, external services or runtime texture-loading JavaScript are involved.
 
-- `.surface-homey-linen`: Warm Linen with the supplied transparent Homéy overlay, 512 × 512 CSS pixels.
-- `.surface-raya-blush`: Petal Blush with the supplied transparent Raya overlay, 768 × 768 CSS pixels.
-- `.surface-warm-ivory-paper`: Warm Ivory with the supplied ivory paper, 768 × 768 CSS pixels. The same declarations cover the public body and opaque site header.
+- `.surface-homey-linen`: Warm Linen with the pre-rendered Homéy paper, 512 × 512 CSS pixels.
+- `.surface-raya-blush`: Petal Blush with the pre-rendered Raya paper, 768 × 768 CSS pixels.
+- `.surface-warm-ivory-paper`: Warm Ivory with the pre-rendered ivory paper, 768 × 768 CSS pixels. The same declarations cover the public body and opaque site header.
 - `.surface-plain`: explicit decoration opt-out, including the ivory owner.
 
-All textures repeat at position `0 0`, with scroll attachment and identical CSS-pixel tile sizes on desktop/mobile. No cover/contain, stretching, fixed background, animation, parallax, container opacity, blending or increased SVG opacity is introduced.
+All textures repeat at position `0 0`, with scroll attachment and identical CSS-pixel tile sizes on desktop/mobile. No cover/contain, stretching, fixed background, animation, parallax, container opacity, blending or increased source opacity is introduced. Export rendering bakes the supplied SVG opacity into each approved base once, rather than evaluating turbulence and filters in the customer’s browser.
 
 Small muted text uses existing deeper olive `#4F5644` and gold-family `#70562B` tokens. On solid ivory these give approximately 6.17:1 and 5.55:1 contrast, replacing muted values of 4.27:1 and 4.45:1. Heading inks, accent colours, font sizes and typography are unchanged. Existing linen/blush muted-text treatments are preserved.
 
@@ -72,7 +72,32 @@ No other touching large ivory/linen/blush bands need new lines in the current pu
 - The existing header is `position: relative`, not sticky. That behaviour is preserved; scrolling and mobile-menu layering introduce no new fixed/sticky treatment or duplicate border.
 - A 200% scaled review retains 768 px CSS tiles and no route overflow. This is an enlarged visual check, not native browser zoom or a physical-device test.
 - A 1600 px repeat study and rounded corners were inspected for visible joins. All decoration remains behind fully opaque content.
-- Local browser asset checks return HTTP 200 for the stylesheet and all three SVGs, with `image/svg+xml` for textures. Missing-image checks preserve exact solid ivory/blush/linen fills, full content opacity and the divider. Actual contrast/print fallback declarations were exercised in the isolated fixture; native OS accessibility settings were not changed.
+- Local browser asset checks return HTTP 200 for the stylesheet and all three runtime WebP paths, with `image/webp` for the tiles. Missing-image checks preserve exact solid ivory/blush/linen fills, full content opacity and the divider. Actual contrast/print fallback declarations were exercised in the isolated fixture; native OS accessibility settings were not changed.
 - Local Homéy and Raya scrolling checks each used 90 animation frames: median 16.7 ms, with no frame over 50 ms. Results are observations of this review environment, not production/mobile performance guarantees.
 
 Visual checks use an isolated static copy of the same storefront and repository catalogue because the Worker dev preview cannot stay running in this environment. The before stylesheet, review controls, repeat sample and route-audit harness are outside the repository and are not deployed. Checkout, payment, upload, domain, Cloudflare configuration and original imagery files are unchanged.
+
+
+## Rendering-performance correction
+
+A subsequent user report of severe lag exposed a weakness in the original verification: requestAnimationFrame scrolling intervals on a fast desktop do not measure all SVG filter painting/compositor work. Each supplied SVG has three procedural turbulence filters. Applying these backgrounds to the entire page and header made that expensive rendering path part of ordinary browsing.
+
+The correction changes only the three paper URLs, adds static pre-rendered assets, and updates these notes. Original SVG masters, template logic, layout, divider rules, accessibility fallbacks, imagery, API, payments, uploads and Cloudflare configuration remain unchanged. No new production dependency or runtime texture script is required; the existing build simply copies the new files.
+
+| Runtime asset | Dimensions | Bytes |
+| --- | --- | ---: |
+| `homey-paper-v1.webp` | 512 × 512 | 58,898 |
+| `raya-blush-paper-v1.webp` | 768 × 768 | 91,346 |
+| `homey-warm-ivory-paper-v1.webp` | 768 × 768 | 93,516 |
+
+These high-quality WebP exports use quality 100, retaining the fine finish without the blocking artifacts of lower-quality trial exports. They are not bit-identical to every browser's procedural SVG rendering. All three total 243,760 bytes. Texture sizes remain 512/768 CSS pixels on desktop and mobile; full-page CSS backgrounds refer to ordinary decoded images instead of filter-bearing SVGs. This trades some extra transfer bytes against substantially less rendering work. Shared decoded resources can be reused by the body, header and other matching surfaces.
+
+A local Chrome comparison loaded each asset once, then measured decoding, drawing to a native-size canvas and reading pixels. It ran one warm-up and five measured iterations per asset; medians for the final exports were:
+
+| Paper | Procedural SVG | Static WebP | Reduction |
+| --- | ---: | ---: | ---: |
+| Homéy linen | 26.9 ms | 10.2 ms | 62% |
+| Raya blush | 54.7 ms | 14.8 ms | 73% |
+| Warm Ivory | 58.9 ms | 16.7 ms | 72% |
+
+These are texture decode/paint measurements, not whole-page loading times or a guarantee for every device. The test harness is outside the repository and is not deployed. The full route audit was repeated at 1280 and 390 px, confirming the new WebP URLs, unchanged 512/768 px tile sizes and borders, plain controls, and no horizontal overflow. The build and all 46 existing tests pass.
