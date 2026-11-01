@@ -1,8 +1,8 @@
 # Deploy homéy on Cloudflare Workers
 
-## What was corrected
+## Storage and routing
 
-The first configuration contained a placeholder D1 database ID and a mandatory named R2 bucket. Neither could be used on another account without manual setup. The current configuration uses Wrangler's automatic D1 provisioning, runs the asset build automatically, and initializes the database schema and catalogue on the first API request. R2 is optional so an account without R2 enabled can still deploy the store and accept EasyPaisa-transfer orders.
+The configuration uses Wrangler's automatic D1 provisioning, runs the asset build automatically, and initializes a new database's schema and catalogue on the first API request. Product uploads now use the owner's existing R2 bucket named `homey`, bound as `MEDIA`. That bucket must exist in the Cloudflare account where the Worker is deployed. Payment screenshots use private D1 storage by default; a separate `PAYMENTS` R2 binding remains optional.
 
 Cloudflare’s built-in HTML redirects are disabled because this Worker handles `/admin` and storefront routes itself. This prevents `/admin.html` and `/index.html` rewrites from redirecting back to their public route.
 
@@ -42,13 +42,13 @@ There is no default password and no password belongs in GitHub. Sessions expire 
 
 The 83 original catalogue photos ship with the website and work immediately. Existing images can be selected in **Admin → Media**, and product/category fields also accept HTTPS image URLs.
 
-To upload new image files directly from the admin:
+The repository now declares `MEDIA` with `bucket_name: "homey"`, matching the owner-created bucket. Deploy the latest commit, refresh `/admin`, and open **Media** or edit a product. The bucket must belong to the same Cloudflare account as the target Worker.
 
-1. Enable R2 in your Cloudflare account if needed.
-2. From a trusted checkout run `npm run storage:enable`. This adds separate R2 `MEDIA` (catalogue uploads) and `PAYMENTS` (private evidence) bindings to `wrangler.jsonc`, without account-specific bucket names.
-3. Commit that configuration and redeploy. Wrangler provisions separate buckets and links them to `MEDIA` and `PAYMENTS`. Keep PAYMENTS private.
+To connect it through the dashboard, open **Workers & Pages → the correct Worker → Bindings → Add binding → R2 bucket**, enter `MEDIA` as the variable name, select `homey`, then save/deploy. Repeat for the other Worker when uploads are needed there. If the Workers are in different accounts, each account needs its intended bucket named `homey`.
 
-If you already have a bucket, put its real `bucket_name` into that R2 binding instead. Store uploaded photos and database backups separately. Do not commit R2 credentials.
+The bucket's S3 endpoint is not a website setting or a public image base URL. No access keys, public bucket URL or CORS changes are needed: the Worker uploads and serves product images using its native binding. Keep the bucket private. See [Product image uploads](MEDIA.md) for connection checks and the distinction from payment evidence.
+
+For a future installation that does not use file uploads, the `MEDIA` entry can be omitted; existing catalogue photos and HTTPS image URLs continue to work. To optionally move new payment screenshots to R2, `npm run storage:enable` ensures a separate `PAYMENTS` binding exists without changing the named `MEDIA` bucket. Keep payment evidence in its separate private bucket.
 
 ## Local development
 
@@ -79,7 +79,7 @@ Open the failed deployment in Cloudflare and copy the error section from its bui
 | Missing entry point / Wrangler configuration | Root directory must contain `wrangler.jsonc` and `worker/index.js`. |
 | Worker name mismatch | Dashboard Worker name and `wrangler.jsonc` name must match. |
 | D1 permission / provisioning error | Build token must allow D1 creation and access in the selected account. |
-| R2 account not enabled | Default setup has no R2 requirement. If you added `MEDIA`, enable R2 or remove that optional binding. |
+| R2 bucket missing / account not enabled | Enable R2 and confirm a bucket named `homey` exists in the target Worker’s account. Product uploads use its `MEDIA` binding. |
 | `dist` does not exist | Ensure the current Wrangler config is used; its custom build creates `dist`. |
 | `node:sqlite` during tests | Use Node 24 for test/build commands. |
 | API routes show HTML / 404 | Deploy through Workers with the Worker entry point; a static upload cannot run checkout. |
