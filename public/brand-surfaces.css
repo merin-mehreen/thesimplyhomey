@@ -1,0 +1,92 @@
+/* Adapted from the supplied brand-surfaces.css.
+ * Decorative panels only: original palette, layout and background layers remain.
+ * One isolated paper layer sits behind content, never on images or controls.
+ */
+:root {
+  --homey-linen: #E0DAD0;
+  --raya-blush: #F5E5DE;
+  --homey-text: #4F5644;
+  --raya-text: #70562B;
+  --homey-paper: url("./assets/textures/homey-paper.svg");
+  --raya-paper: url("./assets/textures/raya-blush-paper.svg");
+  --surface-paper: var(--homey-paper);
+  --surface-paper-size: 512px 512px;
+  --surface-base: var(--homey-linen);
+  --surface-muted: var(--homey-text);
+}
+
+/* The existing page theme also selects the matching paper for shared panels. */
+body.raya {
+  --surface-paper: var(--raya-paper);
+  --surface-paper-size: 768px 768px;
+  --surface-base: var(--raya-blush);
+  --surface-muted: var(--raya-text);
+}
+
+/* Reusable explicit-brand utilities, also usable without the app's JavaScript. */
+.surface-homey-linen {
+  --surface-paper: var(--homey-paper);
+  --surface-paper-size: 512px 512px;
+  --surface-base: var(--homey-linen);
+  --surface-muted: var(--homey-text);
+}
+
+.surface-raya-blush,
+.raya-invitation {
+  --surface-paper: var(--raya-paper);
+  --surface-paper-size: 768px 768px;
+  --surface-base: var(--raya-blush);
+  --surface-muted: var(--raya-text);
+}
+
+/* One owner per surface. The editorial's children and footer columns stay bare.
+ * Functional secondary fills (image wells, summaries, fields, badges and admin)
+ * deliberately keep their existing solid styling in styles.css.
+ */
+:is(.surface-homey-linen, .surface-raya-blush, .hero-copy, .editorial,
+    .raya-invitation, .raya-hero, footer) {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--surface-base);
+  --muted: var(--surface-muted);
+}
+
+:is(.surface-homey-linen, .surface-raya-blush, .hero-copy, .editorial,
+    .raya-invitation, .raya-hero, footer)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: var(--surface-paper);
+  background-size: var(--surface-paper-size);
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-attachment: scroll;
+}
+
+/* Opt out without removing a component's other intentional background layers. */
+.surface-plain::before {
+  content: none;
+}
+
+/* Same fixed CSS-pixel tile sizes on every viewport; no scaling media queries.
+ * The SVGs retain their supplied opacity. Text, images and focus rings stay opaque.
+ * Material decoration communicates no essential information.
+ */
+@media (prefers-contrast: more), (forced-colors: active) {
+  :is(.surface-homey-linen, .surface-raya-blush, .hero-copy, .editorial,
+      .raya-invitation, .raya-hero, footer)::before {
+    content: none;
+    background-image: none;
+  }
+}
+
+@media print {
+  :is(.surface-homey-linen, .surface-raya-blush, .hero-copy, .editorial,
+      .raya-invitation, .raya-hero, footer)::before {
+    content: none;
+    background-image: none;
+  }
+}

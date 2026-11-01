@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768">
+  <title>Raya Atelier — soft blush paper overlay</title>
+  <desc>Transparent seamless procedural texture. Use over Petal Blush #F5E5DE at 768 CSS pixels. No logo or photograph.</desc>
+  <defs>
+    <filter id="cloud" x="0" y="0" width="768" height="768" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".009 .014" numOctaves="3" seed="31" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.694118  0 0 0 0 0.541176  0 0 0 0 0.239216  0.18 0 0 0 -0.06"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="768" height="768" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".48 .44" numOctaves="3" seed="17" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.694118  0 0 0 0 0.541176  0 0 0 0 0.239216  0.12 0 0 0 -0.037"/>
+    </filter>
+    <filter id="light" x="0" y="0" width="768" height="768" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".016 .011" numOctaves="3" seed="53" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.937255  0 0 0 0 0.901961  0 0 0 0 0.839216  0.2 0 0 0 -0.06"/>
+    </filter>
+  </defs>
+  <g opacity="1">
+    <rect width="768" height="768" filter="url(#cloud)"/>
+    <rect width="768" height="768" filter="url(#grain)"/>
+    <rect width="768" height="768" filter="url(#light)"/>
+  </g>
+</svg>
