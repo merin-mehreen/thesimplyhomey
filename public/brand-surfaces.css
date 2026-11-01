@@ -1,12 +1,15 @@
 /* Adapted from the supplied brand-surfaces.css.
- * Decorative panels only: original palette, layout and background layers remain.
+ * Original palette, layout and background layers remain.
  * One isolated paper layer sits behind content, never on images or controls.
  */
 :root {
   --homey-linen: #E0DAD0;
   --raya-blush: #F5E5DE;
   --homey-text: #4F5644;
+  --muted: var(--homey-text);
   --raya-text: #70562B;
+  --ivory-paper: url("./assets/textures/homey-warm-ivory-paper.svg");
+  --plain-control-base: var(--paper, #EFE6D6);
   --homey-paper: url("./assets/textures/homey-paper.svg");
   --raya-paper: url("./assets/textures/raya-blush-paper.svg");
   --surface-paper: var(--homey-paper);
@@ -17,6 +20,7 @@
 
 /* The existing page theme also selects the matching paper for shared panels. */
 body.raya {
+  --muted: var(--raya-text);
   --surface-paper: var(--raya-paper);
   --surface-paper-size: 768px 768px;
   --surface-base: var(--raya-blush);
@@ -49,6 +53,7 @@ body.raya {
   isolation: isolate;
   background-color: var(--surface-base);
   --muted: var(--surface-muted);
+  --plain-control-base: var(--surface-base);
 }
 
 :is(.surface-homey-linen, .surface-raya-blush, .hero-copy, .editorial,
@@ -87,6 +92,64 @@ body.raya {
   :is(.surface-homey-linen, .surface-raya-blush, .hero-copy, .editorial,
       .raya-invitation, .raya-hero, footer)::before {
     content: none;
+    background-image: none;
+  }
+}
+
+/* The page canvas is the single ivory owner for transparent main/section content.
+ * The opaque header needs its own surface; no positioning or opacity changes.
+ * The supplied ivory SVG includes its base, so never use it over linen/blush.
+ */
+body:not(.admin-body),
+.site-header,
+.surface-warm-ivory-paper {
+  background-color: #EFE6D6;
+  background-image: var(--ivory-paper);
+  background-size: 768px 768px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-attachment: scroll;
+}
+
+/* An explicit ivory opt-out removes decoration without changing the base fill. */
+body.surface-plain, .site-header.surface-plain,
+.surface-warm-ivory-paper.surface-plain {
+  background-image: none;
+}
+
+/* Solid fields and secondary buttons keep paper grain out of functional controls.
+ * In a linen/blush panel the inherited control base matches that panel's colour.
+ */
+.field input, .field select, .field textarea,
+.toolbar select, .bag-item input, .btn.secondary {
+  background-color: var(--plain-control-base);
+}
+
+/* Match the existing full-width footer line, once on the incoming outer section.
+ * Explicit theme variants cover mixed-brand boundaries without colour detection.
+ */
+.section-divider {
+  border-block-start: 1px solid var(--section-divider-colour, var(--line, #73786240));
+}
+.section-divider--homey { --section-divider-colour: #73786240; }
+.section-divider--raya { --section-divider-colour: #B18A3D50; }
+/* Recolour the existing footer border after the homepage's Raya panel; no new line. */
+footer.section-divider--raya {
+  border-block-start-color: var(--section-divider-colour);
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  body:not(.admin-body), .site-header, .surface-warm-ivory-paper {
+    background-image: none;
+  }
+}
+@media (forced-colors: active) {
+  .section-divider, footer.section-divider--raya {
+    border-block-start-color: CanvasText;
+  }
+}
+@media print {
+  body:not(.admin-body), .site-header, .surface-warm-ivory-paper {
     background-image: none;
   }
 }
