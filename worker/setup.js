@@ -1,8 +1,20 @@
 import {commerce,commerceTriggers} from './commerce-schema.generated.js';
 import initialCatalog from '../public/data/catalog.json' with {type:'json'};
 import {base,integrity,stockTrigger} from './schema.generated.js';
-// One promise per binding and isolate, with transactional migration markers for concurrent isolates.
-const pending=new WeakMap();
+// Cache only completed checks. In-flight D1 work belongs to its originating request;
+// another request must never wait on it after a navigation or cancellation.
+const initialized=new WeakSet();
+const requiredMigrations=['001','002','003','catalog-v1','004-storefront','005-commerce','006-payment-settings'];
+async function schemaComplete(db){
+ try{
+  const rows=await db.prepare('SELECT id FROM homey_schema').all();
+  const applied=new Set(rows.results.map(row=>row.id));
+  return requiredMigrations.every(id=>applied.has(id));
+ }catch(error){
+  if(/no such table:\s*(?:main\.)?homey_schema\b/i.test(error.message))return false;
+  throw error;
+ }
+}
 async function migrate(db,id,sql){
  if(await db.prepare('SELECT id FROM homey_schema WHERE id=?').bind(id).first())return;
  try{await db.batch([db.prepare('INSERT INTO homey_schema(id) VALUES(?)').bind(id),...sql.map(s=>db.prepare(s))]);}
@@ -74,8 +86,9 @@ async function initialize(db){
  }
 }
 export async function ensureDatabase(env){
- if(!env.DB)return;
- let ready=pending.get(env.DB);
- if(!ready){ready=initialize(env.DB).catch(e=>{pending.delete(env.DB);throw e;});pending.set(env.DB,ready);}
- await ready;
+ const db=env.DB;
+ if(!db||initialized.has(db))return;
+ // An existing store needs a single read, not DDL and migration probes on every cold isolate.
+ if(!await schemaComplete(db))await initialize(db);
+ initialized.add(db);
 }
