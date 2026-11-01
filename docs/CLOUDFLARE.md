@@ -2,7 +2,7 @@
 
 ## Storage and routing
 
-The configuration uses Wrangler's automatic D1 provisioning, runs the asset build automatically, and initializes a new database's schema and catalogue on the first API request. Product uploads now use the owner's existing R2 bucket named `homey`, bound as `MEDIA`. That bucket must exist in the Cloudflare account where the Worker is deployed. Payment screenshots use private D1 storage by default; a separate `PAYMENTS` R2 binding remains optional.
+The configuration uses Wrangler's automatic D1 provisioning, runs the asset build automatically, and initializes a new database's schema and catalogue on the first API request. Product uploads use a per-Worker R2 bucket bound as `MEDIA`. The shared configuration deliberately omits a bucket name and account ID: Wrangler inherits an existing `MEDIA` connection or provisions a bucket in the current deployment account. R2 must be enabled there. Payment screenshots use private D1 storage by default; a separate `PAYMENTS` R2 binding remains optional.
 
 Cloudflare’s built-in HTML redirects are disabled because this Worker handles `/admin` and storefront routes itself. This prevents `/admin.html` and `/index.html` rewrites from redirecting back to their public route.
 
@@ -42,13 +42,13 @@ There is no default password and no password belongs in GitHub. Sessions expire 
 
 The 83 original catalogue photos ship with the website and work immediately. Existing images can be selected in **Admin → Media**, and product/category fields also accept HTTPS image URLs.
 
-The repository now declares `MEDIA` with `bucket_name: "homey"`, matching the owner-created bucket. Deploy the latest commit, refresh `/admin`, and open **Media** or edit a product. The bucket must belong to the same Cloudflare account as the target Worker.
+The repository declares `"r2_buckets": [{ "binding": "MEDIA" }]`. With the pinned Wrangler version, this inherits a bucket already connected to the target Worker as `MEDIA`. If no such binding exists, Wrangler automatically provisions a bucket in the current deployment account. Enable R2 in that account and make sure the build token can create/bind R2 buckets, then deploy and refresh `/admin`.
 
-To connect it through the dashboard, open **Workers & Pages → the correct Worker → Bindings → Add binding → R2 bucket**, enter `MEDIA` as the variable name, select `homey`, then save/deploy. Repeat for the other Worker when uploads are needed there. If the Workers are in different accounts, each account needs its intended bucket named `homey`.
+To use an existing bucket such as `homey`, open **Workers & Pages → the correct Worker → Bindings → Add binding → R2 bucket**, enter `MEDIA` as the variable name, select that account's bucket, then save/deploy. Later GitHub deployments inherit that connection. Do not put a shared `bucket_name` back into the repository when the same repository deploys Workers in different accounts.
 
-The bucket's S3 endpoint is not a website setting or a public image base URL. No access keys, public bucket URL or CORS changes are needed: the Worker uploads and serves product images using its native binding. Keep the bucket private. See [Product image uploads](MEDIA.md) for connection checks and the distinction from payment evidence.
+An endpoint beginning with one account ID cannot provide a native R2 binding to a Worker in another account. Each account needs its own bucket/binding. The bucket's S3 endpoint is not a website setting or public image base URL. No S3 keys, public bucket URL or CORS changes are needed for the native Worker upload flow. Keep the bucket private. See [Product image uploads](MEDIA.md) for checks and error 10085.
 
-For a future installation that does not use file uploads, the `MEDIA` entry can be omitted; existing catalogue photos and HTTPS image URLs continue to work. To optionally move new payment screenshots to R2, `npm run storage:enable` ensures a separate `PAYMENTS` binding exists without changing the named `MEDIA` bucket. Keep payment evidence in its separate private bucket.
+For a future installation that does not use file uploads, the `MEDIA` entry can be omitted; existing catalogue photos and HTTPS image URLs continue to work. To optionally move new payment screenshots to R2, `npm run storage:enable` ensures a separate `PAYMENTS` binding exists. Keep payment evidence in its separate private bucket.
 
 ## Local development
 
@@ -79,7 +79,7 @@ Open the failed deployment in Cloudflare and copy the error section from its bui
 | Missing entry point / Wrangler configuration | Root directory must contain `wrangler.jsonc` and `worker/index.js`. |
 | Worker name mismatch | Dashboard Worker name and `wrangler.jsonc` name must match. |
 | D1 permission / provisioning error | Build token must allow D1 creation and access in the selected account. |
-| R2 bucket missing / account not enabled | Enable R2 and confirm a bucket named `homey` exists in the target Worker’s account. Product uploads use its `MEDIA` binding. |
+| R2 bucket missing / account not enabled | Enable R2 in the actual deployment account. Keep `MEDIA` unpinned to inherit/provision per Worker, or attach an existing bucket from that same account. See [media setup](MEDIA.md). |
 | `dist` does not exist | Ensure the current Wrangler config is used; its custom build creates `dist`. |
 | `node:sqlite` during tests | Use Node 24 for test/build commands. |
 | API routes show HTML / 404 | Deploy through Workers with the Worker entry point; a static upload cannot run checkout. |

@@ -30,7 +30,7 @@ The same screen controls the homepage headline/introduction/image, brand introdu
 
 ## Upload images
 
-Use **Media** to upload JPEG, PNG or WebP images up to 10 MB each. The deployment configuration connects the owner-created `homey` R2 bucket as `MEDIA`; deploy the latest commit and refresh admin after connecting it. Each Worker needs this binding in its own Cloudflare account. Existing catalogue photos or HTTPS image URLs can also be used. See [Product image uploads](MEDIA.md) for setup and checks. Select a thumbnail to copy its URL, then paste it into a product or other image field. Media comes from the original catalogue and your R2 uploads. Uploaded image names are random and do not overwrite another product's photos.
+Use **Media** to upload JPEG, PNG or WebP images up to 10 MB each. The deployment configuration declares a `MEDIA` binding without an account-specific bucket name. Existing Worker bindings are inherited; otherwise Wrangler provisions a bucket in that Worker’s account. Enable R2 in that account, deploy the latest commit and refresh admin. To use an existing bucket, connect it as `MEDIA` on the correct Worker first. Existing catalogue photos or HTTPS image URLs can also be used. See [Product image uploads](MEDIA.md) for setup and checks. Select a thumbnail to copy its URL, then paste it into a product or other image field. Media comes from the original catalogue and your R2 uploads. Uploaded image names are random and do not overwrite another product's photos.
 
 ## Orders and stock
 
