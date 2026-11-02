@@ -1,6 +1,6 @@
 # Homéy and Raya paper surfaces
 
-The current finish uses pre-rendered WebP tiles exported from the supplied linen, blush and Warm Ivory SVGs. Browsers no longer render the procedural SVG filters on page backgrounds. The ivory update supersedes the previous instruction to keep ivory plain. Base colours remain Warm Linen `#E0DAD0`, Petal Blush `#F5E5DE` and Warm Ivory `#EFE6D6`. All three source SVGs retain their supplied bytes and opacity.
+The current finish uses the supplied stronger Warm Ivory WebP unchanged, alongside the existing pre-rendered linen and blush tiles. Browsers no longer render the procedural SVG filters on page backgrounds. The ivory update supersedes the previous instruction to keep ivory plain. Base colours remain Warm Linen `#E0DAD0`, Petal Blush `#F5E5DE` and Warm Ivory `#EFE6D6`. All three source SVGs retain their supplied bytes and opacity.
 
 ## Source and surface audit
 
@@ -22,11 +22,11 @@ The current finish uses pre-rendered WebP tiles exported from the supplied linen
 | Admin canvas, navigation, active buttons, ledger statistics and media UI | Plain; admin does not load the surface stylesheet. |
 | `color: var(--paper)` on accent controls/announcement/notice | Text colour, not a background conversion. Existing accent colours, borders and shadows are retained. |
 
-Each WebP tile includes its matching approved base colour. The source ivory SVG already contains its opaque ivory base; the transparent linen/blush sources were composited onto their approved base colours during export. Linen/blush paper remains on isolated `::before` backgrounds over the same CSS base fills. Their parent/child relationships do not create overlapping visible paper. The header has no existing background image to displace. The public page canvas likewise has no pre-existing image or gradient.
+Each WebP tile includes its matching approved base colour. Warm Ivory uses the supplied rich-paper bitmap at full strength; the transparent linen/blush sources were composited onto their approved base colours during their earlier export. Linen/blush paper remains on isolated `::before` backgrounds over the same CSS base fills. Their parent/child relationships do not create overlapping visible paper. The header has no existing background image to displace. The public page canvas likewise has no pre-existing image or gradient.
 
 ## Shared implementation
 
-`public/index.html` already loads `public/brand-surfaces.css` after `styles.css`. The existing build copies the stylesheet and all assets under `public/assets/textures/` to `dist/`. CSS resolves the versioned local WebP paths relative to the stylesheet. The original SVGs remain unchanged as design masters and are not requested by the runtime surface CSS. No media uploads, R2 bindings, external services or runtime texture-loading JavaScript are involved.
+`public/index.html` already loads `public/brand-surfaces.css` after `styles.css`. The existing build copies the stylesheet and all assets under `public/assets/textures/` to `dist/`. CSS resolves the versioned local WebP paths relative to the stylesheet. The original SVGs remain unchanged as archived design masters and are not requested by runtime surface CSS. The previous runtime ivory WebP has been removed. No media uploads, R2 bindings, external services or runtime texture-loading JavaScript are involved.
 
 - `.surface-homey-linen`: Warm Linen with the pre-rendered Homéy paper, 512 × 512 CSS pixels.
 - `.surface-raya-blush`: Petal Blush with the pre-rendered Raya paper, 768 × 768 CSS pixels.
@@ -88,11 +88,11 @@ The correction changes only the three paper URLs, adds static pre-rendered asset
 | --- | --- | ---: |
 | `homey-paper-v1.webp` | 512 × 512 | 58,898 |
 | `raya-blush-paper-v1.webp` | 768 × 768 | 91,346 |
-| `homey-warm-ivory-paper-v1.webp` | 768 × 768 | 93,516 |
+| `homey-warm-ivory-paper-visible-v2.webp` | 768 × 768 | 140,106 |
 
-These high-quality WebP exports use quality 100, retaining the fine finish without the blocking artifacts of lower-quality trial exports. They are not bit-identical to every browser's procedural SVG rendering. All three total 243,760 bytes. Texture sizes remain 512/768 CSS pixels on desktop and mobile; full-page CSS backgrounds refer to ordinary decoded images instead of filter-bearing SVGs. This trades some extra transfer bytes against substantially less rendering work. Shared decoded resources can be reused by the body, header and other matching surfaces.
+The linen/blush WebP exports use quality 100. The current ivory WebP is supplied artwork, copied byte-for-byte without re-encoding or processing. All three runtime tiles total 290,350 bytes. Texture sizes remain 512/768 CSS pixels on desktop and mobile; full-page CSS backgrounds refer to ordinary decoded images instead of filter-bearing SVGs. This trades some extra transfer bytes against substantially less rendering work. Shared decoded resources can be reused by the body, header and other matching surfaces.
 
-A local Chrome comparison loaded each asset once, then measured decoding, drawing to a native-size canvas and reading pixels. It ran one warm-up and five measured iterations per asset; medians for the final exports were:
+A local Chrome comparison loaded each asset once, then measured decoding, drawing to a native-size canvas and reading pixels. It ran one warm-up and five measured iterations per asset; medians for the original v1 exports were (the stronger ivory asset below supersedes that ivory export):
 
 | Paper | Procedural SVG | Static WebP | Reduction |
 | --- | ---: | ---: | ---: |
@@ -101,3 +101,14 @@ A local Chrome comparison loaded each asset once, then measured decoding, drawin
 | Warm Ivory | 58.9 ms | 16.7 ms | 72% |
 
 These are texture decode/paint measurements, not whole-page loading times or a guarantee for every device. The test harness is outside the repository and is not deployed. The full route audit was repeated at 1280 and 390 px, confirming the new WebP URLs, unchanged 512/768 px tile sizes and borders, plain controls, and no horizontal overflow. The build and all 46 existing tests pass.
+
+
+## Stronger supplied ivory update
+
+The current ivory asset is `public/assets/textures/homey-warm-ivory-paper-visible-v2.webp`, copied unchanged from `homey-warm-ivory-paper-visible(1).webp`. It is 768 × 768 pixels and 140,106 bytes; SHA-256 `6a49775365fadc8b41c5ac6135b1e3cf3a43b5c93fca5c6604be2886c679074f`. The attached rich-ivory HTML was inspected as the visual/CSS reference. No ZIP was required because the artwork and preview were supplied directly.
+
+The existing shared `--ivory-paper` URL was replaced, rather than adding a new overlay. Public body, opaque ivory header and `.surface-warm-ivory-paper` continue to use `#EFE6D6`, one repeating image at 768 × 768 CSS pixels, position `0 0`, scroll attachment. Transparent editorial/article/intro/section descendants show the single canvas beneath them. There is no opacity adjustment, wash, blur, animation, stretching, image processing or procedural filter. Existing print/contrast solid-colour fallbacks are preserved.
+
+The old `homey-warm-ivory-paper-v1.webp` runtime asset was removed. The new filename and the index stylesheet URL `brand-surfaces.css?v=ivory-6a497753` both change cache identity. Linen/blush assets, surface rules, divider rules, typography, template logic, imagery, controls, payments and deployment configuration are unchanged.
+
+Verification: the source and built WebP are byte-identical to the attachment; local asset delivery returns HTTP 200 and `image/webp`. At 1280 px desktop and 390 px mobile, computed body/header styles show the single new image, exact 768 px repeats, `0 0`, scroll attachment, opacity 1 and filter none. Text is readable and grain is clearly visible at normal scale. Product controls retain solid ivory/olive fills and no images. Both layouts have no horizontal overflow. Native scrolling was exercised on the storefront; remote animation-frame measurements are recorded only as review-environment observations, not device-performance guarantees. Build and all 46 existing tests pass. Desktop/mobile screenshots show the story route because its broad ivory canvas makes the supplied texture easy to assess.

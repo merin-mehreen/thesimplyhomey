@@ -9,7 +9,7 @@
   --homey-text: #4F5644;
   --muted: var(--homey-text);
   --raya-text: #70562B;
-  --ivory-paper: url("./assets/textures/homey-warm-ivory-paper-v1.webp");
+  --ivory-paper: url("./assets/textures/homey-warm-ivory-paper-visible-v2.webp");
   --plain-control-base: var(--paper, #EFE6D6);
   --homey-paper: url("./assets/textures/homey-paper-v1.webp");
   --raya-paper: url("./assets/textures/raya-blush-paper-v1.webp");
